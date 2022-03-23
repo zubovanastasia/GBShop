@@ -1,6 +1,6 @@
 # Development of a iOS-app for an online store "GBShop"
 
-Lesson 1. 
+# Lesson 1. 
 
 1) Created an empty project.
 
