@@ -21,3 +21,8 @@
 8) Opened a merge request to the develop branch.
 
 9) Assigned a request to the teacher.
+
+# Lesson 2.
+
+1) Created classes for sign up, authorization, change of personal data, logout. API.
+2) Compliance with SOLID principles. Dependency Inversion.
