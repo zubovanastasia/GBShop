@@ -35,7 +35,6 @@ extension SignUp {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "registerUser.json"
-        
         let user: User
         var parameters: Parameters? {
             return [

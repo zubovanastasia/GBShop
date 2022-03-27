@@ -14,14 +14,13 @@ class ChangePersonalData: AbstractRequestFactory {
     let queue: DispatchQueue
     let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
     
-    init(
-        errorParser: AbstractErrorParser,
-        sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
-            self.errorParser = errorParser
-            self.sessionManager = sessionManager
-            self.queue = queue
-        }
+    init(errorParser: AbstractErrorParser,
+         sessionManager: Session,
+         queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+        self.errorParser = errorParser
+        self.sessionManager = sessionManager
+        self.queue = queue
+    }
 }
 
 extension ChangePersonalData: ChangePersonalDataRequestFactory {
@@ -36,7 +35,6 @@ extension ChangePersonalData {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "changePersonalData.json"
-        
         let user: User
         var parameters: Parameters? {
             return [

@@ -21,11 +21,11 @@ class GBShopViewController: UIViewController {
         makeLogoutRequest()
     }
     
-    // MARK: - Test methods.
+    // MARK: - Test functions.
     
     func makeAuthRequest() {
         let factory = requestFactory.makeAuthRequestFactory()
-        let user = User(login: "Somebody", password: "mypassword")
+        let user = User(login: "User", password: "123")
         
         factory.login(user: user) { response in
             switch response.result {
@@ -39,14 +39,14 @@ class GBShopViewController: UIViewController {
     
     func makeSignUpRequest() {
         let factory = requestFactory.makeSignUpRequestFactory()
-        let user = User(login: "SomebodyElse",
-                        password: "mypassword",
-                        email: "janedoe@gmail.com",
-                        gender: "f",
-                        creditCard: "2344-4324-2344-1233-1234",
-                        bio: "Nothin to tell ya folks %)",
-                        name: "Jane",
-                        lastname: "Doe")
+        let user = User(login: "UserOne",
+                        password: "123",
+                        email: "userone@mail.ru",
+                        gender: "m",
+                        creditCard: "5344-5764-3634-5674-4574",
+                        bio: "-",
+                        name: "Ben",
+                        lastname: "Mel")
         
         factory.signUp(user: user) { response in
             switch response.result {
@@ -61,14 +61,14 @@ class GBShopViewController: UIViewController {
     func makeChangeUserDataRequest() {
         let factory = requestFactory.makeChangePersonalDataRequestFactory()
         let user = User(id: 123,
-                        login: "SomebodyElse",
-                        password: "mypassword",
-                        email: "janedoe@gmail.com",
-                        gender: "f",
-                        creditCard: "2344-4324-2344-1233-1234",
-                        bio: "Nothin to tell ya folks %)",
-                        name: "Jane",
-                        lastname: "Doe")
+                        login: "UserOne",
+                        password: "123",
+                        email: "userone@mail.ru",
+                        gender: "m",
+                        creditCard: "5344-5764-3634-5674-4574",
+                        bio: "-",
+                        name: "Ben",
+                        lastname: "Mel")
         
         factory.changePersonalData(user: user) { response in
             switch response.result {

@@ -32,7 +32,9 @@ class RequestFactory {
     
     func makeSignUpRequestFactory() -> SignUpRequestFactory {
         let errorParser = makeErrorParser()
-        return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return SignUp(errorParser: errorParser,
+                      sessionManager: commonSession,
+                      queue: sessionQueue)
     }
     
     func makeChangePersonalDataRequestFactory() -> ChangePersonalDataRequestFactory {
@@ -45,7 +47,7 @@ class RequestFactory {
     func makeLogoutRequestFactory() -> LogoutRequestFactory {
         let errorParser = makeErrorParser()
         return Logout(errorParser: errorParser,
-                    sessionManager: commonSession,
-                    queue: sessionQueue)
+                      sessionManager: commonSession,
+                      queue: sessionQueue)
     }
 }
