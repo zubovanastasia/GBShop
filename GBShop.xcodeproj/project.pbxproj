@@ -14,6 +14,28 @@
 		633263A427E9EA82002759D3 /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263A327E9EA82002759D3 /* GBShopTests.swift */; };
 		633263AE27E9EA82002759D3 /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263AD27E9EA82002759D3 /* GBShopUITests.swift */; };
 		633263B027E9EA82002759D3 /* GBShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263AF27E9EA82002759D3 /* GBShopUITestsLaunchTests.swift */; };
+		633263C727ECE092002759D3 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263C627ECE092002759D3 /* AuthRequestFactory.swift */; };
+		633263C927ECE0A5002759D3 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263C827ECE0A5002759D3 /* Auth.swift */; };
+		633263CB27ECE0C7002759D3 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263CA27ECE0C7002759D3 /* RequestFactory.swift */; };
+		633263CD27ECE0DD002759D3 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263CC27ECE0DD002759D3 /* LoginResult.swift */; };
+		633263CF27ECE0EA002759D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263CE27ECE0EA002759D3 /* User.swift */; };
+		633263D227ECE142002759D3 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263D127ECE142002759D3 /* AbstractErrorParser.swift */; };
+		633263D427ECE152002759D3 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263D327ECE152002759D3 /* ErrorParser.swift */; };
+		633263D627ECE172002759D3 /* ResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263D527ECE172002759D3 /* ResponseCodable.swift */; };
+		633263D827ECE1B1002759D3 /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263D727ECE1B1002759D3 /* AbstractRequestFactory.swift */; };
+		633263DA27ECE1D1002759D3 /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263D927ECE1D1002759D3 /* RequestRouter.swift */; };
+		633263DD27ECE341002759D3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 633263DC27ECE341002759D3 /* Alamofire */; };
+		633263DF27EE4594002759D3 /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263DE27EE4594002759D3 /* SignUpResult.swift */; };
+		633263E127EE45B3002759D3 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263E027EE45B3002759D3 /* LogoutResult.swift */; };
+		633263E327EE45F6002759D3 /* ChangePersonalDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263E227EE45F6002759D3 /* ChangePersonalDataResult.swift */; };
+		633263E527EE4702002759D3 /* SignUpRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263E427EE4702002759D3 /* SignUpRequestFactory.swift */; };
+		633263E727EE472A002759D3 /* LogoutRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263E627EE472A002759D3 /* LogoutRequestFactory.swift */; };
+		633263E927EE4761002759D3 /* ChangePersonalDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263E827EE4761002759D3 /* ChangePersonalDataRequestFactory.swift */; };
+		633263EB27EE492E002759D3 /* ChangePersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263EA27EE492E002759D3 /* ChangePersonalData.swift */; };
+		633263ED27EE4CC3002759D3 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263EC27EE4CC3002759D3 /* SignUp.swift */; };
+		633263EF27EE4DB9002759D3 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263EE27EE4DB9002759D3 /* Logout.swift */; };
+		633263F127EE4FF1002759D3 /* GBShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633263F027EE4FF1002759D3 /* GBShopViewController.swift */; };
+		633263F327F08C1E002759D3 /* MainGBShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633263F227F08C1E002759D3 /* MainGBShop.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +67,27 @@
 		633263A927E9EA82002759D3 /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		633263AD27E9EA82002759D3 /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		633263AF27E9EA82002759D3 /* GBShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		633263C627ECE092002759D3 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
+		633263C827ECE0A5002759D3 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		633263CA27ECE0C7002759D3 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		633263CC27ECE0DD002759D3 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
+		633263CE27ECE0EA002759D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		633263D127ECE142002759D3 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
+		633263D327ECE152002759D3 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
+		633263D527ECE172002759D3 /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
+		633263D727ECE1B1002759D3 /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
+		633263D927ECE1D1002759D3 /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		633263DE27EE4594002759D3 /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
+		633263E027EE45B3002759D3 /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
+		633263E227EE45F6002759D3 /* ChangePersonalDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePersonalDataResult.swift; sourceTree = "<group>"; };
+		633263E427EE4702002759D3 /* SignUpRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestFactory.swift; sourceTree = "<group>"; };
+		633263E627EE472A002759D3 /* LogoutRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequestFactory.swift; sourceTree = "<group>"; };
+		633263E827EE4761002759D3 /* ChangePersonalDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePersonalDataRequestFactory.swift; sourceTree = "<group>"; };
+		633263EA27EE492E002759D3 /* ChangePersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePersonalData.swift; sourceTree = "<group>"; };
+		633263EC27EE4CC3002759D3 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		633263EE27EE4DB9002759D3 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
+		633263F027EE4FF1002759D3 /* GBShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopViewController.swift; sourceTree = "<group>"; };
+		633263F227F08C1E002759D3 /* MainGBShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGBShop.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633263DD27ECE341002759D3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +188,8 @@
 		633263BE27E9EDBE002759D3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				633263F027EE4FF1002759D3 /* GBShopViewController.swift */,
+				633263F227F08C1E002759D3 /* MainGBShop.storyboard */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -151,6 +197,11 @@
 		633263BF27E9EDDE002759D3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				633263CE27ECE0EA002759D3 /* User.swift */,
+				633263DE27EE4594002759D3 /* SignUpResult.swift */,
+				633263CC27ECE0DD002759D3 /* LoginResult.swift */,
+				633263E227EE45F6002759D3 /* ChangePersonalDataResult.swift */,
+				633263E027EE45B3002759D3 /* LogoutResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -158,6 +209,7 @@
 		633263C027E9EDF5002759D3 /* BussinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				633263C527ECE051002759D3 /* Network */,
 			);
 			path = BussinessLogic;
 			sourceTree = "<group>";
@@ -165,6 +217,7 @@
 		633263C127E9EE37002759D3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				633263D027ECE107002759D3 /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -193,6 +246,34 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
+		633263C527ECE051002759D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				633263E427EE4702002759D3 /* SignUpRequestFactory.swift */,
+				633263EC27EE4CC3002759D3 /* SignUp.swift */,
+				633263C627ECE092002759D3 /* AuthRequestFactory.swift */,
+				633263C827ECE0A5002759D3 /* Auth.swift */,
+				633263E827EE4761002759D3 /* ChangePersonalDataRequestFactory.swift */,
+				633263EA27EE492E002759D3 /* ChangePersonalData.swift */,
+				633263E627EE472A002759D3 /* LogoutRequestFactory.swift */,
+				633263EE27EE4DB9002759D3 /* Logout.swift */,
+				633263CA27ECE0C7002759D3 /* RequestFactory.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		633263D027ECE107002759D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				633263D127ECE142002759D3 /* AbstractErrorParser.swift */,
+				633263D327ECE152002759D3 /* ErrorParser.swift */,
+				633263D527ECE172002759D3 /* ResponseCodable.swift */,
+				633263D727ECE1B1002759D3 /* AbstractRequestFactory.swift */,
+				633263D927ECE1D1002759D3 /* RequestRouter.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,6 +290,9 @@
 			dependencies = (
 			);
 			name = GBShop;
+			packageProductDependencies = (
+				633263DC27ECE341002759D3 /* Alamofire */,
+			);
 			productName = GBShop;
 			productReference = 6332638927E9EA80002759D3 /* GBShop.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +365,9 @@
 				Base,
 			);
 			mainGroup = 6332638027E9EA80002759D3;
+			packageReferences = (
+				633263DB27ECE341002759D3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6332638A27E9EA80002759D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,6 +386,7 @@
 			files = (
 				6332639927E9EA82002759D3 /* LaunchScreen.storyboard in Resources */,
 				6332639627E9EA82002759D3 /* Assets.xcassets in Resources */,
+				633263F327F08C1E002759D3 /* MainGBShop.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +411,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633263D827ECE1B1002759D3 /* AbstractRequestFactory.swift in Sources */,
+				633263CD27ECE0DD002759D3 /* LoginResult.swift in Sources */,
+				633263E127EE45B3002759D3 /* LogoutResult.swift in Sources */,
+				633263E727EE472A002759D3 /* LogoutRequestFactory.swift in Sources */,
+				633263D627ECE172002759D3 /* ResponseCodable.swift in Sources */,
+				633263DF27EE4594002759D3 /* SignUpResult.swift in Sources */,
 				6332638D27E9EA80002759D3 /* AppDelegate.swift in Sources */,
+				633263F127EE4FF1002759D3 /* GBShopViewController.swift in Sources */,
+				633263CB27ECE0C7002759D3 /* RequestFactory.swift in Sources */,
 				6332638F27E9EA80002759D3 /* SceneDelegate.swift in Sources */,
+				633263ED27EE4CC3002759D3 /* SignUp.swift in Sources */,
+				633263D427ECE152002759D3 /* ErrorParser.swift in Sources */,
+				633263C727ECE092002759D3 /* AuthRequestFactory.swift in Sources */,
+				633263DA27ECE1D1002759D3 /* RequestRouter.swift in Sources */,
+				633263EF27EE4DB9002759D3 /* Logout.swift in Sources */,
+				633263E927EE4761002759D3 /* ChangePersonalDataRequestFactory.swift in Sources */,
+				633263E327EE45F6002759D3 /* ChangePersonalDataResult.swift in Sources */,
+				633263E527EE4702002759D3 /* SignUpRequestFactory.swift in Sources */,
+				633263EB27EE492E002759D3 /* ChangePersonalData.swift in Sources */,
+				633263C927ECE0A5002759D3 /* Auth.swift in Sources */,
+				633263CF27ECE0EA002759D3 /* User.swift in Sources */,
+				633263D227ECE142002759D3 /* AbstractErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +608,7 @@
 				INFOPLIST_FILE = GBShop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainGBShop;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,7 +636,7 @@
 				INFOPLIST_FILE = GBShop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainGBShop;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -680,6 +788,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		633263DB27ECE341002759D3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		633263DC27ECE341002759D3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 633263DB27ECE341002759D3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6332638127E9EA80002759D3 /* Project object */;
 }
