@@ -17,7 +17,9 @@ class GBShopViewController: UIViewController {
         
         makeAuthRequest()
         makeSignUpRequest()
-        makeChangeUserDataRequest()
+        makeChangePersonalDataRequest()
+        makeProductListRequest()
+        makeGetGoodRequest()
         makeLogoutRequest()
     }
     
@@ -36,7 +38,6 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
     func makeSignUpRequest() {
         let factory = requestFactory.makeSignUpRequestFactory()
         let user = User(login: "UserOne",
@@ -57,8 +58,7 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
-    func makeChangeUserDataRequest() {
+    func makeChangePersonalDataRequest() {
         let factory = requestFactory.makeChangePersonalDataRequestFactory()
         let user = User(id: 123,
                         login: "UserOne",
@@ -79,12 +79,36 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
     func makeLogoutRequest() {
         let factory = requestFactory.makeLogoutRequestFactory()
         let user = User(id: 123)
         
         factory.logout(user: user) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func makeProductListRequest() {
+        let factory = requestFactory.makeProductListRequestFactory()
+        
+        factory.productList(pageNumber: 1, categoryId: 1) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func makeGetGoodRequest() {
+        let factory = requestFactory.makeGoodByIdRequestFactory()
+        
+        factory.goodById(productId: 123) { response in
             switch response.result {
             case .success(let result):
                 print(result)
