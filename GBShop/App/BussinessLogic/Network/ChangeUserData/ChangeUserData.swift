@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-class ChangePersonalData: AbstractRequestFactory {
+class ChangeUserData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://afternoon-hollows-69135.herokuapp.com/")!
     
     init(errorParser: AbstractErrorParser,
          sessionManager: Session,
@@ -23,18 +23,18 @@ class ChangePersonalData: AbstractRequestFactory {
     }
 }
 
-extension ChangePersonalData: ChangePersonalDataRequestFactory {
-    func changePersonalData(user: User, completionHandler: @escaping (AFDataResponse<ChangePersonalDataResult>) -> Void) {
-        let requestModel = ChangePersonalData(baseUrl: baseUrl, user: user)
+extension ChangeUserData: ChangeUserDataRequestFactory {
+    func changeUserData(user: User, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+        let requestModel = ChangeUserData(baseUrl: baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension ChangePersonalData {
-    struct ChangePersonalData: RequestRouter {
+extension ChangeUserData {
+    struct ChangeUserData: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "changePersonalData.json"
+        let method: HTTPMethod = .post
+        let path: String = "changePersonalData"
         let user: User
         var parameters: Parameters? {
             return [

@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-class ProductList: AbstractRequestFactory {
+class Catalog: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://afternoon-hollows-69135.herokuapp.com/")!
     
     init(errorParser: AbstractErrorParser,
         sessionManager: Session,
@@ -23,20 +23,20 @@ class ProductList: AbstractRequestFactory {
         }
 }
 
-extension ProductList: ProductListRequestFactory {
-    func productList(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[ProductListResult]>) -> Void) {
-        let requestModel = ProductList(baseUrl: baseUrl,
+extension Catalog: CatalogRequestFactory {
+    func getCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[CatalogResponse]>) -> Void) {
+        let requestModel = Catalog(baseUrl: baseUrl,
                                        pageNumber: pageNumber,
                                        categoryId: categoryId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension ProductList {
-    struct ProductList: RequestRouter {
+extension Catalog {
+    struct Catalog: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let method: HTTPMethod = .post
+        let path: String = "getCatalog"
         let pageNumber: Int
         let categoryId: Int
         var parameters: Parameters? {

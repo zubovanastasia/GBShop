@@ -22,23 +22,23 @@ class RequestFactory {
         return ErrorParser()
     }
     
-    func makeAuthRequestFactory() -> AuthRequestFactory {
+    func makeAuthRequestFactory() -> LoginRequestFactory {
         let errorParser = makeErrorParser()
-        return Auth(errorParser: errorParser,
+        return Login(errorParser: errorParser,
                     sessionManager: commonSession,
                     queue: sessionQueue)
     }
     
-    func makeSignUpRequestFactory() -> SignUpRequestFactory {
+    func makeSignUpRequestFactory() -> SignupRequestFactory {
         let errorParser = makeErrorParser()
-        return SignUp(errorParser: errorParser,
+        return Signup(errorParser: errorParser,
                       sessionManager: commonSession,
                       queue: sessionQueue)
     }
     
-    func makeChangePersonalDataRequestFactory() -> ChangePersonalDataRequestFactory {
+    func makeChangePersonalDataRequestFactory() -> ChangeUserDataRequestFactory {
         let errorParser = makeErrorParser()
-        return ChangePersonalData(errorParser: errorParser,
+        return ChangeUserData(errorParser: errorParser,
                                   sessionManager: commonSession,
                                   queue: sessionQueue)
     }
@@ -49,16 +49,16 @@ class RequestFactory {
                       sessionManager: commonSession,
                       queue: sessionQueue)
     }
-    func makeProductListRequestFactory() -> ProductListRequestFactory {
+    func makeProductListRequestFactory() -> CatalogRequestFactory {
         let errorParser = makeErrorParser()
-        return ProductList(errorParser: errorParser,
+        return Catalog(errorParser: errorParser,
                            sessionManager: commonSession,
                            queue: sessionQueue)
     }
     
-    func makeGoodByIdRequestFactory() -> GoodByIdRequestFactory {
+    func makeGoodByIdRequestFactory() -> GoodRequestFactory {
         let errorParser = makeErrorParser()
-        return GoodById(errorParser: errorParser,
+        return Good(errorParser: errorParser,
                         sessionManager: commonSession,
                         queue: sessionQueue)
     }

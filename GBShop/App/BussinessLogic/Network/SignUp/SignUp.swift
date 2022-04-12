@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-class SignUp: AbstractRequestFactory {
+class Signup: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://afternoon-hollows-69135.herokuapp.com/")!
     
     init(errorParser: AbstractErrorParser,
          sessionManager: Session,
@@ -23,18 +23,18 @@ class SignUp: AbstractRequestFactory {
     }
 }
 
-extension SignUp: SignUpRequestFactory {
-    func signUp(user: User, completionHandler: @escaping (AFDataResponse<SignUpResult>) -> Void) {
-        let requestModel = SignUp(baseUrl: baseUrl, user: user)
+extension Signup: SignupRequestFactory {
+    func signup(user: User, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+        let requestModel = Signup(baseUrl: baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension SignUp {
-    struct SignUp: RequestRouter {
+extension Signup {
+    struct Signup: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+        let path: String = "signup"
         let user: User
         var parameters: Parameters? {
             return [

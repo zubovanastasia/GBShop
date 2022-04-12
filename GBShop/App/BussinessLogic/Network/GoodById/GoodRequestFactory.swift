@@ -8,6 +8,6 @@
 import Foundation
 import Alamofire
 
-protocol GoodByIdRequestFactory {
-    func goodById(productId: Int, completionHandler: @escaping (AFDataResponse<GoodByIdResult>) -> Void)
+protocol GoodRequestFactory {
+    func getGood(productId: Int, completionHandler: @escaping (AFDataResponse<GoodResponse>) -> Void)
 }

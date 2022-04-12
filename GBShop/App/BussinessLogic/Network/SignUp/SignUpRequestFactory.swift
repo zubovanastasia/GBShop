@@ -8,6 +8,6 @@
 import Foundation
 import Alamofire
 
-protocol SignUpRequestFactory {
-    func signUp(user: User, completionHandler: @escaping (AFDataResponse<SignUpResult>) -> Void)
+protocol SignupRequestFactory {
+    func signup(user: User, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void)
 }

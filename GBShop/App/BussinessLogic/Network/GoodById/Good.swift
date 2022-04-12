@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-class GoodById: AbstractRequestFactory {
+class Good: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://afternoon-hollows-69135.herokuapp.com/")!
     
     init(errorParser: AbstractErrorParser,
          sessionManager: Session,
@@ -23,18 +23,18 @@ class GoodById: AbstractRequestFactory {
     }
 }
 
-extension GoodById: GoodByIdRequestFactory {
-    func goodById(productId: Int, completionHandler: @escaping (AFDataResponse<GoodByIdResult>) -> Void) {
-        let requestModel = GoodById(baseUrl: baseUrl, productId: productId)
+extension Good: GoodRequestFactory {
+    func getGood(productId: Int, completionHandler: @escaping (AFDataResponse<GoodResponse>) -> Void) {
+        let requestModel = Good(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension GoodById {
-    struct GoodById: RequestRouter {
+extension Good {
+    struct Good: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "getGoodById.json"
+        let method: HTTPMethod = .post
+        let path: String = "getGood"
         let productId: Int
         var parameters: Parameters? {
             return [
