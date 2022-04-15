@@ -36,7 +36,7 @@ extension Catalog {
     struct Catalog: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
-        let path: String = "getCatalog"
+        let path: String = "getcatalog"
         let pageNumber: Int
         let categoryId: Int
         var parameters: Parameters? {
