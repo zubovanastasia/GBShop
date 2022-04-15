@@ -32,12 +32,12 @@ extension Basket: BasketRequestFactory {
         let requestModel = PayBasket(baseUrl: baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    func addToBasket(cart: BasketUser, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
-        let requestModel = AddToBasket(baseUrl: baseUrl, cart: cart)
+    func addToBasket(basket: BasketUser, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+        let requestModel = AddToBasket(baseUrl: baseUrl, basket: basket)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    func deleteFromBasket(cart: BasketUser, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
-        let requestModel = DeleteFromBasket(baseUrl: baseUrl, cart: cart)
+    func deleteFromBasket(basket: BasketUser, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+        let requestModel = DeleteFromBasket(baseUrl: baseUrl, basket: basket)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -65,19 +65,19 @@ extension Basket {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "addtobasket"
-        let cart: BasketUser
+        let basket: BasketUser
         var parameters: Parameters? {
-            return ["productId": cart.productId ?? 0,
-                    "quantity": cart.quantity ?? 0]
+            return ["productId": basket.productId ?? 0,
+                    "quantity": basket.quantity ?? 0]
         }
     }
     struct DeleteFromBasket: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "deletefrombasket"
-        let cart: BasketUser
+        let basket: BasketUser
         var parameters: Parameters? {
-            return ["productId": cart.productId ?? 0]
+            return ["productId": basket.productId ?? 0]
         }
     }
 }

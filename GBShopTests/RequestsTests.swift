@@ -112,7 +112,7 @@ class RequestsTests: XCTestCase {
     }
     func testShouldPerformAddReviewsRequest() {
         let factory = requestFactory.makeReviewsRequestFactory()
-        factory.addReview(review: AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 666)) { response in
+        factory.addReview(review: AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 456)) { response in
             switch response.result {
             case .success(let result): XCTAssertEqual(result.result, 1)
             case .failure: XCTFail()
@@ -124,6 +124,52 @@ class RequestsTests: XCTestCase {
     func testShouldPerformRemoveReviewsRequest() {
         let factory = requestFactory.makeReviewsRequestFactory()
         factory.removeReview(reviewId: 123) { response in
+            switch response.result {
+            case .success(let result): XCTAssertEqual(result.result, 1)
+            case .failure: XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    func testShouldPerformGetBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.getBasket(user: User(id: 123)){ response in
+            switch response.result {
+            case .success(let result): XCTAssertNotNil(result.count)
+            case .failure: XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    
+    func testShouldPerformPayBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.payBasket(user: User(id: 123)){ response in
+            switch response.result {
+            case .success(let result): XCTAssertEqual(result.result, 1)
+            case .failure: XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    
+    func testShouldPerformAddToBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.addToBasket(basket: BasketUser(productId: 456, quantity: 1)){ response in
+            switch response.result {
+            case .success(let result): XCTAssertEqual(result.result, 1)
+            case .failure: XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    func testShouldPerformDeleteFromBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.deleteFromBasket(basket: BasketUser(productId: 456)){ response in
             switch response.result {
             case .success(let result): XCTAssertEqual(result.result, 1)
             case .failure: XCTFail()

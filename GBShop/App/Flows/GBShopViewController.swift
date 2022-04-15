@@ -18,15 +18,19 @@ class GBShopViewController: UIViewController {
         makeAuthRequest()
         makeSignUpRequest()
         makeChangePersonalDataRequest()
-        makeProductListRequest()
+        makeCatalogRequest()
         makeGetGoodRequest()
         makeLogoutRequest()
         makeGetReviewsRequest()
         makeAddReviewRequest()
         makeRemoveReviewRequest()
+        makeGetBasketRequest()
+        makePayBasketRequest()
+        makeAddToBasketRequest()
+        makeDeleteFromBasketRequest()
     }
     
-    // MARK: - Test functions.
+    // MARK: - Data requests.
     
     func makeAuthRequest() {
         let factory = requestFactory.makeLoginRequestFactory()
@@ -91,7 +95,10 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    func makeProductListRequest() {
+    
+    // MARK: - Catalog requests.
+    
+    func makeCatalogRequest() {
         let factory = requestFactory.makeCatalogRequestFactory()
         factory.getCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
@@ -113,6 +120,9 @@ class GBShopViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Reviews requests.
+    
     func makeGetReviewsRequest() {
         let factory = requestFactory.makeReviewsRequestFactory()
         factory.getReviews(productId: 123) { response in
@@ -126,7 +136,7 @@ class GBShopViewController: UIViewController {
     }
     func makeAddReviewRequest() {
         let factory = requestFactory.makeReviewsRequestFactory()
-        let review = AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 666)
+        let review = AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 456)
         factory.addReview(review: review){ response in
             switch response.result {
             case .success(let result):
@@ -139,6 +149,55 @@ class GBShopViewController: UIViewController {
     func makeRemoveReviewRequest() {
         let factory = requestFactory.makeReviewsRequestFactory()
         factory.removeReview(reviewId: 123){ response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Basket requests.
+    
+    func makeGetBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.getBasket(user: User(id: 123)){ response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func makePayBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        factory.payBasket(user: User(id: 123)){ response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func makeAddToBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        let basket = BasketUser(productId: 456, quantity: 1)
+        factory.addToBasket(basket: basket){ response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func makeDeleteFromBasketRequest() {
+        let factory = requestFactory.makeBasketRequestFactory()
+        let basket = BasketUser(productId: 456)
+        factory.deleteFromBasket(basket: basket){ response in
             switch response.result {
             case .success(let result):
                 print(result)
