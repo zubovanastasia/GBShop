@@ -45,6 +45,10 @@
 		63BDCEE42805A51300365156 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEE32805A51300365156 /* Reviews.swift */; };
 		63BDCEE62805A52E00365156 /* ReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEE52805A52E00365156 /* ReviewRequestFactory.swift */; };
 		63BDCEEA2805A7BE00365156 /* AddReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEE92805A7BE00365156 /* AddReviewResponse.swift */; };
+		63BDCEED2809C3D000365156 /* BasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEEC2809C3D000365156 /* BasketRequestFactory.swift */; };
+		63BDCEEF2809C49100365156 /* BasketUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEEE2809C49100365156 /* BasketUser.swift */; };
+		63BDCEF12809C4F600365156 /* BasketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEF02809C4F600365156 /* BasketResponse.swift */; };
+		63BDCEF32809C56F00365156 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEF22809C56F00365156 /* Basket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,10 @@
 		63BDCEE32805A51300365156 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		63BDCEE52805A52E00365156 /* ReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequestFactory.swift; sourceTree = "<group>"; };
 		63BDCEE92805A7BE00365156 /* AddReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResponse.swift; sourceTree = "<group>"; };
+		63BDCEEC2809C3D000365156 /* BasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequestFactory.swift; sourceTree = "<group>"; };
+		63BDCEEE2809C49100365156 /* BasketUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketUser.swift; sourceTree = "<group>"; };
+		63BDCEF02809C4F600365156 /* BasketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResponse.swift; sourceTree = "<group>"; };
+		63BDCEF22809C56F00365156 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +231,8 @@
 				63BDCEDC280598EF00365156 /* GoodResponse.swift */,
 				63BDCEE02805A46300365156 /* ReviewResponse.swift */,
 				63BDCEE92805A7BE00365156 /* AddReviewResponse.swift */,
+				63BDCEEE2809C49100365156 /* BasketUser.swift */,
+				63BDCEF02809C4F600365156 /* BasketResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -270,6 +280,7 @@
 		633263C527ECE051002759D3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				63BDCEEB2809C3B000365156 /* Basket */,
 				6332640427F73DF3002759D3 /* Signup */,
 				6332640527F73E05002759D3 /* Login */,
 				6332640627F73E14002759D3 /* ChangeUserData */,
@@ -355,6 +366,15 @@
 				63BDCEE32805A51300365156 /* Reviews.swift */,
 			);
 			path = Reviews;
+			sourceTree = "<group>";
+		};
+		63BDCEEB2809C3B000365156 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				63BDCEEC2809C3D000365156 /* BasketRequestFactory.swift */,
+				63BDCEF22809C56F00365156 /* Basket.swift */,
+			);
+			path = Basket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +516,7 @@
 			files = (
 				633263D827ECE1B1002759D3 /* AbstractRequestFactory.swift in Sources */,
 				63BDCEDB2805989500365156 /* DefaultResponse.swift in Sources */,
+				63BDCEF32809C56F00365156 /* Basket.swift in Sources */,
 				633263E727EE472A002759D3 /* LogoutRequestFactory.swift in Sources */,
 				633263D627ECE172002759D3 /* ResponseCodable.swift in Sources */,
 				6332638D27E9EA80002759D3 /* AppDelegate.swift in Sources */,
@@ -508,14 +529,17 @@
 				633263F927F3C02C002759D3 /* Catalog.swift in Sources */,
 				633263D427ECE152002759D3 /* ErrorParser.swift in Sources */,
 				63BDCEEA2805A7BE00365156 /* AddReviewResponse.swift in Sources */,
+				63BDCEED2809C3D000365156 /* BasketRequestFactory.swift in Sources */,
 				63BDCEE12805A46300365156 /* ReviewResponse.swift in Sources */,
 				63BDCEE42805A51300365156 /* Reviews.swift in Sources */,
 				633263C727ECE092002759D3 /* LoginRequestFactory.swift in Sources */,
 				633263DA27ECE1D1002759D3 /* RequestRouter.swift in Sources */,
 				633263EF27EE4DB9002759D3 /* Logout.swift in Sources */,
 				633263FB27F3C0DE002759D3 /* CatalogRequestFactory.swift in Sources */,
+				63BDCEEF2809C49100365156 /* BasketUser.swift in Sources */,
 				633263E927EE4761002759D3 /* ChangeUserDataRequestFactory.swift in Sources */,
 				63BDCEDF2805999700365156 /* CatalogResponse.swift in Sources */,
+				63BDCEF12809C4F600365156 /* BasketResponse.swift in Sources */,
 				6332640327F73C73002759D3 /* Good.swift in Sources */,
 				633263E527EE4702002759D3 /* SignupRequestFactory.swift in Sources */,
 				633263EB27EE492E002759D3 /* ChangeUserData.swift in Sources */,
