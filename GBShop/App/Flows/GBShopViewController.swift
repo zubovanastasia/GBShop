@@ -18,23 +18,17 @@ class GBShopViewController: UIViewController {
         makeAuthRequest()
         makeSignUpRequest()
         makeChangePersonalDataRequest()
-        makeCatalogRequest()
+        makeProductListRequest()
         makeGetGoodRequest()
         makeLogoutRequest()
-        makeGetReviewsRequest()
-        makeAddReviewRequest()
-        makeRemoveReviewRequest()
-        makeGetBasketRequest()
-        makePayBasketRequest()
-        makeAddToBasketRequest()
-        makeDeleteFromBasketRequest()
     }
     
-    // MARK: - Data requests.
+    // MARK: - Test functions.
     
     func makeAuthRequest() {
-        let factory = requestFactory.makeLoginRequestFactory()
+        let factory = requestFactory.makeAuthRequestFactory()
         let user = User(login: "User", password: "123")
+        
         factory.login(user: user) { response in
             switch response.result {
             case .success(let result):
@@ -45,7 +39,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeSignUpRequest() {
-        let factory = requestFactory.makeSignupRequestFactory()
+        let factory = requestFactory.makeSignUpRequestFactory()
         let user = User(login: "UserOne",
                         password: "123",
                         email: "userone@mail.ru",
@@ -54,7 +48,8 @@ class GBShopViewController: UIViewController {
                         bio: "-",
                         name: "Ben",
                         lastname: "Mel")
-        factory.signup(user: user) { response in
+        
+        factory.signUp(user: user) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -64,7 +59,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeChangePersonalDataRequest() {
-        let factory = requestFactory.makeChangeUserDataRequestFactory()
+        let factory = requestFactory.makeChangePersonalDataRequestFactory()
         let user = User(id: 123,
                         login: "UserOne",
                         password: "123",
@@ -74,7 +69,8 @@ class GBShopViewController: UIViewController {
                         bio: "-",
                         name: "Ben",
                         lastname: "Mel")
-        factory.changeUserData(user: user) { response in
+        
+        factory.changePersonalData(user: user) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -86,6 +82,7 @@ class GBShopViewController: UIViewController {
     func makeLogoutRequest() {
         let factory = requestFactory.makeLogoutRequestFactory()
         let user = User(id: 123)
+        
         factory.logout(user: user) { response in
             switch response.result {
             case .success(let result):
@@ -95,12 +92,10 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Catalog requests.
-    
-    func makeCatalogRequest() {
-        let factory = requestFactory.makeCatalogRequestFactory()
-        factory.getCatalog(pageNumber: 1, categoryId: 1) { response in
+    func makeProductListRequest() {
+        let factory = requestFactory.makeProductListRequestFactory()
+        
+        factory.productList(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -109,95 +104,11 @@ class GBShopViewController: UIViewController {
             }
         }
     }
+    
     func makeGetGoodRequest() {
-        let factory = requestFactory.makeGoodRequestFactory()
-        factory.getGood(productId: 123) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    // MARK: - Reviews requests.
-    
-    func makeGetReviewsRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
-        factory.getReviews(productId: 123) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func makeAddReviewRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
-        let review = AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 456)
-        factory.addReview(review: review){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func makeRemoveReviewRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
-        factory.removeReview(reviewId: 123){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    // MARK: - Basket requests.
-    
-    func makeGetBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
-        factory.getBasket(user: User(id: 123)){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func makePayBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
-        factory.payBasket(user: User(id: 123)){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func makeAddToBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
-        let basket = BasketUser(productId: 456, quantity: 1)
-        factory.addToBasket(basket: basket){ response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    func makeDeleteFromBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
-        let basket = BasketUser(productId: 456)
-        factory.deleteFromBasket(basket: basket){ response in
+        let factory = requestFactory.makeGoodByIdRequestFactory()
+        
+        factory.goodById(productId: 123) { response in
             switch response.result {
             case .success(let result):
                 print(result)

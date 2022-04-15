@@ -34,7 +34,7 @@ extension Good {
     struct Good: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
-        let path: String = "getgood"
+        let path: String = "getGood"
         let productId: Int
         var parameters: Parameters? {
             return [
