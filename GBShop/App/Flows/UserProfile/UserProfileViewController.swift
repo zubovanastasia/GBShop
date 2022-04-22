@@ -12,9 +12,11 @@ class UserProfileViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var welcomeText: UILabel!
     
+    // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    // MARK: - Controller show methods.
     private func showChangeUserData() {
         let storyboard = UIStoryboard(name: "ChangeUserData", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
@@ -31,6 +33,7 @@ class UserProfileViewController: UIViewController {
             self.present(viewController, animated: true)
         }
     }
+    // MARK: - IBAction methods.
     @IBAction private func changeUserData(_ sender: Any) {
         self.showChangeUserData()
     }

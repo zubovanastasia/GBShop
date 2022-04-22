@@ -14,12 +14,22 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordText: UITextField!
     private let request = RequestFactory()
     
+    // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
         addGesture()
         loginText.text = "login"
         passwordText.text = "password"
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.addObservers()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeObservers()
+    }
+    // MARK: - User data form method.
     private func formFill() -> Bool {
         guard loginText.text != "",
               passwordText.text != "" else {
@@ -27,6 +37,7 @@ class LoginViewController: UIViewController {
         }
         return true
     }
+    // MARK: - Controller show methods.
     private func showUserProfile() {
         let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
@@ -43,20 +54,10 @@ class LoginViewController: UIViewController {
             self.present(viewController, animated: true)
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.addObservers()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.removeObservers()
-    }
+    // MARK: - Keyboard animation methods.
     private func addGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleGesture))
         self.scrollView.addGestureRecognizer(gesture)
-    }
-    @objc private func handleGesture() {
-        self.scrollView.endEditing(true)
     }
     private func addObservers() {
         NotificationCenter.default
@@ -71,15 +72,17 @@ class LoginViewController: UIViewController {
         NotificationCenter.default
             .removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
+    // MARK: - Objective-C methods.
+    @objc private func handleGesture() {
+        self.scrollView.endEditing(true)
+    }
     @objc private func handleKeyboardWillShow() {
         self.scrollView.contentInset.bottom += 110
     }
     @objc private func handleKeyboardWillHide() {
         self.scrollView.contentInset.bottom = 0
     }
-    
     // MARK: - Error alert private methods.
-    
     private func showErrorAlert() {
         let alertController = UIAlertController(title: "Ошибка",
                                                 message: "Неправильный логин или пароль.",
@@ -95,6 +98,7 @@ class LoginViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Ок(", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
+    // MARK: - IBAction methods.
     @IBAction private func loginButton(_ sender: Any) {
         guard formFill() else { return
             self.showErrorAlert()
@@ -110,7 +114,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    @IBAction func cancelButton(_ sender: Any) {
+    @IBAction private func cancelButton(_ sender: Any) {
         self.showMainViewController()
     }
 }

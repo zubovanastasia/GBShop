@@ -12,11 +12,21 @@ class SignupViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var emailText: UITextField!
     @IBOutlet private weak var passwordText: UITextField!
-    let request = RequestFactory()
+    private let request = RequestFactory()
     
+    // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.addObservers()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeObservers()
+    }
+    // MARK: - User data form method.
     private func formFill() -> Bool {
         guard emailText.text != "",
               passwordText.text != "" else {
@@ -24,6 +34,7 @@ class SignupViewController: UIViewController {
         }
         return true
     }
+    // MARK: - Controller show methods.
     private func showUserProfile() {
         let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
@@ -40,6 +51,7 @@ class SignupViewController: UIViewController {
             self.present(viewController, animated: true)
         }
     }
+    // MARK: - Error alert private methods.
     private func showErrorAlert() {
         let alertController = UIAlertController(title: "Ошибка",
                                                 message: "Все поля обязательны для заполнения",
@@ -54,20 +66,11 @@ class SignupViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "ОК", style: .default))
         self.present(alertController, animated: true)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.addObservers()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.removeObservers()
-    }
+    
+    // MARK: - Keyboard animation methods.
     private func addGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleGesture))
         self.scrollView.addGestureRecognizer(gesture)
-    }
-    @objc private func handleGesture() {
-        self.scrollView.endEditing(true)
     }
     private func addObservers() {
         NotificationCenter.default
@@ -82,12 +85,17 @@ class SignupViewController: UIViewController {
         NotificationCenter.default
             .removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
+    // MARK: - Objective-C methods.
+    @objc private func handleGesture() {
+        self.scrollView.endEditing(true)
+    }
     @objc private func handleKeyboardWillShow() {
         self.scrollView.contentInset.bottom += 110
     }
     @objc private func handleKeyboardWillHide() {
         self.scrollView.contentInset.bottom = 0
     }
+    // MARK: - IBAction methods.
     @IBAction private func signupButton(_ sender: Any) {
         guard formFill() else { return
             self.showErrorAlert()
@@ -107,4 +115,3 @@ class SignupViewController: UIViewController {
         self.showMainViewController()
     }
 }
-

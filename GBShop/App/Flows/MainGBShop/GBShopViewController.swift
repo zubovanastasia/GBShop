@@ -9,15 +9,14 @@ import Foundation
 import UIKit
 
 class GBShopViewController: UIViewController {
+    private let request = RequestFactory()
     
-    let requestFactory = RequestFactory()
-    
+    // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         makeAuthRequest()
-        makeSignUpRequest()
-        makeChangePersonalDataRequest()
+        makeSignupRequest()
+        makeChangeUserDataRequest()
         makeCatalogRequest()
         makeGetGoodRequest()
         makeLogoutRequest()
@@ -29,11 +28,9 @@ class GBShopViewController: UIViewController {
         makeAddToBasketRequest()
         makeDeleteFromBasketRequest()
     }
-    
     // MARK: - Data requests.
-    
     func makeAuthRequest() {
-        let factory = requestFactory.makeLoginRequestFactory()
+        let factory = request.makeLoginRequestFactory()
         let user = User(login: "User", password: "123")
         factory.login(user: user) { response in
             switch response.result {
@@ -44,8 +41,8 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    func makeSignUpRequest() {
-        let factory = requestFactory.makeSignupRequestFactory()
+    func makeSignupRequest() {
+        let factory = request.makeSignupRequestFactory()
         let user = User(login: "UserOne",
                         password: "123",
                         email: "userone@mail.ru",
@@ -63,8 +60,8 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    func makeChangePersonalDataRequest() {
-        let factory = requestFactory.makeChangeUserDataRequestFactory()
+    func makeChangeUserDataRequest() {
+        let factory = request.makeChangeUserDataRequestFactory()
         let user = User(id: 123,
                         login: "UserOne",
                         password: "123",
@@ -84,7 +81,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeLogoutRequest() {
-        let factory = requestFactory.makeLogoutRequestFactory()
+        let factory = request.makeLogoutRequestFactory()
         let user = User(id: 123)
         factory.logout(user: user) { response in
             switch response.result {
@@ -95,11 +92,9 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
     // MARK: - Catalog requests.
-    
     func makeCatalogRequest() {
-        let factory = requestFactory.makeCatalogRequestFactory()
+        let factory = request.makeCatalogRequestFactory()
         factory.getCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
             case .success(let result):
@@ -110,7 +105,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeGetGoodRequest() {
-        let factory = requestFactory.makeGoodRequestFactory()
+        let factory = request.makeGoodRequestFactory()
         factory.getGood(productId: 123) { response in
             switch response.result {
             case .success(let result):
@@ -120,11 +115,9 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
     // MARK: - Reviews requests.
-    
     func makeGetReviewsRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
+        let factory = request.makeReviewsRequestFactory()
         factory.getReviews(productId: 123) { response in
             switch response.result {
             case .success(let result):
@@ -135,8 +128,10 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeAddReviewRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
-        let review = AddReviewResponse(reviewText: "Прекрасный товар!", userId: 123, productId: 456)
+        let factory = request.makeReviewsRequestFactory()
+        let review = AddReviewResponse(reviewText: "Прекрасный товар!",
+                                       userId: 123,
+                                       productId: 456)
         factory.addReview(review: review){ response in
             switch response.result {
             case .success(let result):
@@ -147,7 +142,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeRemoveReviewRequest() {
-        let factory = requestFactory.makeReviewsRequestFactory()
+        let factory = request.makeReviewsRequestFactory()
         factory.removeReview(reviewId: 123){ response in
             switch response.result {
             case .success(let result):
@@ -157,11 +152,9 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
     // MARK: - Basket requests.
-    
     func makeGetBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
+        let factory = request.makeBasketRequestFactory()
         factory.getBasket(user: User(id: 123)){ response in
             switch response.result {
             case .success(let result):
@@ -172,7 +165,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makePayBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
+        let factory = request.makeBasketRequestFactory()
         factory.payBasket(user: User(id: 123)){ response in
             switch response.result {
             case .success(let result):
@@ -183,7 +176,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeAddToBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
+        let factory = request.makeBasketRequestFactory()
         let basket = BasketUser(productId: 456, quantity: 1)
         factory.addToBasket(basket: basket){ response in
             switch response.result {
@@ -195,7 +188,7 @@ class GBShopViewController: UIViewController {
         }
     }
     func makeDeleteFromBasketRequest() {
-        let factory = requestFactory.makeBasketRequestFactory()
+        let factory = request.makeBasketRequestFactory()
         let basket = BasketUser(productId: 456)
         factory.deleteFromBasket(basket: basket){ response in
             switch response.result {
@@ -206,9 +199,7 @@ class GBShopViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Private methods.
-    
+    // MARK: - Controller show methods.
     private func showSignup() {
         let storyboard = UIStoryboard(name: "Signup", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
@@ -225,11 +216,11 @@ class GBShopViewController: UIViewController {
             self.present(viewController, animated: true)
         }
     }
+    // MARK: - IBAction methods.
     @IBAction private func signupButton(_ sender: Any) {
         self.showSignup()
     }
     @IBAction private func loginButton(_ sender: Any) {
         self.showLogin()
     }
-    
 }
