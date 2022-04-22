@@ -206,4 +206,30 @@ class GBShopViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Private methods.
+    
+    private func showSignup() {
+        let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        viewController?.modalPresentationStyle = .fullScreen
+        if let viewController = viewController as? SignupViewController {
+            self.present(viewController, animated: true)
+        }
+    }
+    private func showLogin() {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        viewController?.modalPresentationStyle = .fullScreen
+        if let viewController = viewController as? LoginViewController {
+            self.present(viewController, animated: true)
+        }
+    }
+    @IBAction private func signupButton(_ sender: Any) {
+        self.showSignup()
+    }
+    @IBAction private func loginButton(_ sender: Any) {
+        self.showLogin()
+    }
+    
 }

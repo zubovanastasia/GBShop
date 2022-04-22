@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shop View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="GBShopViewController" customModule="GBShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usk-5b-06V">
+                                <rect key="frame" x="85" y="106" width="242" height="43.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="GBShop">
+                                        <attributes>
+                                            <color key="NSColor" white="0.28824300699300698" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="43" name="Copperplate-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-Wi-XY0">
+                                <rect key="frame" x="55" y="229.5" width="306" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="MLI-6o-F9c"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SIGN UP">
+                                            <attributes>
+                                                <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="17" name="STHeitiTC-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="signupButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hjM-Zn-Lkx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-DM-E7i">
+                                <rect key="frame" x="55" y="320.5" width="306" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Cme-yz-7ix" userLabel="height = 55"/>
+                                    <constraint firstAttribute="width" constant="306" id="qbA-aJ-usW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="LOG IN">
+                                            <attributes>
+                                                <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="17" name="STHeitiTC-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="euO-tA-mUB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nry-Wi-XY0" firstAttribute="top" secondItem="usk-5b-06V" secondAttribute="bottom" constant="80" id="89z-2r-QOn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="usk-5b-06V" secondAttribute="trailing" constant="87" id="DPu-N8-aUk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tzv-DM-E7i" secondAttribute="trailing" constant="53" id="XXg-rK-EUO"/>
+                            <constraint firstItem="Nry-Wi-XY0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="XyL-OL-4P1"/>
+                            <constraint firstItem="usk-5b-06V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="62" id="cIm-Xd-S4D"/>
+                            <constraint firstItem="tzv-DM-E7i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="fRY-Wk-IrX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nry-Wi-XY0" secondAttribute="trailing" constant="53" id="hB5-fY-cQa"/>
+                            <constraint firstItem="usk-5b-06V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="s6G-fN-Rke"/>
+                            <constraint firstItem="tzv-DM-E7i" firstAttribute="top" secondItem="Nry-Wi-XY0" secondAttribute="bottom" constant="36" id="vD5-Ql-rWm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
