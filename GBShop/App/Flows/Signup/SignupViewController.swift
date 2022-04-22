@@ -24,7 +24,6 @@ class SignupViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.removeObservers()
     }
     // MARK: - User data form method.
     private func formFill() -> Bool {
@@ -77,13 +76,6 @@ class SignupViewController: UIViewController {
             .addObserver(self, selector: #selector(handleKeyboardWillShow) , name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default
             .addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
-    }
-    private func removeObservers() {
-        NotificationCenter.default
-            .removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default
-            .removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     // MARK: - Objective-C methods.
     @objc private func handleGesture() {
