@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iep-uj-HTz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-AL-Bvt">
                                         <rect key="frame" x="46" y="162" width="322" height="34"/>
@@ -96,7 +95,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ks-4I-gku">
                                         <rect key="frame" x="46" y="511" width="322" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="322" id="dO9-rR-THu"/>
                                             <constraint firstAttribute="height" constant="50" id="e6u-zJ-FTb"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -118,7 +116,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6e-UU-ghO">
                                         <rect key="frame" x="46" y="571" width="322" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="322" id="3gP-9U-zGg"/>
                                             <constraint firstAttribute="height" constant="50" id="DT3-B2-QWl"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -181,14 +178,13 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="FN2-YN-Au8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FN2-YN-Au8" firstAttribute="width" secondItem="iep-uj-HTz" secondAttribute="width" id="6UZ-Z9-sBY"/>
+                            <constraint firstAttribute="width" secondItem="iep-uj-HTz" secondAttribute="width" id="6UZ-Z9-sBY"/>
                             <constraint firstItem="iep-uj-HTz" firstAttribute="trailing" secondItem="vin-39-4cS" secondAttribute="trailing" id="Izf-jm-w0A"/>
-                            <constraint firstItem="iep-uj-HTz" firstAttribute="bottom" secondItem="FN2-YN-Au8" secondAttribute="bottom" id="hli-9o-oae"/>
+                            <constraint firstItem="iep-uj-HTz" firstAttribute="bottom" secondItem="vin-39-4cS" secondAttribute="bottom" id="hli-9o-oae"/>
                             <constraint firstItem="iep-uj-HTz" firstAttribute="leading" secondItem="vin-39-4cS" secondAttribute="leading" id="i8k-WJ-4P1"/>
-                            <constraint firstItem="iep-uj-HTz" firstAttribute="top" secondItem="FN2-YN-Au8" secondAttribute="top" id="lpB-M0-MGr"/>
+                            <constraint firstItem="iep-uj-HTz" firstAttribute="top" secondItem="vin-39-4cS" secondAttribute="top" id="lpB-M0-MGr"/>
                         </constraints>
                     </view>
                     <connections>

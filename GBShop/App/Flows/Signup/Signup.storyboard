@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDm-om-R7H">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-kd-g6Q">
-                                        <rect key="frame" x="46" y="57" width="128" height="42"/>
+                                        <rect key="frame" x="46" y="57" width="119.5" height="42"/>
                                         <attributedString key="attributedText">
                                             <fragment content="SIGN UP">
                                                 <attributes>
@@ -32,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Glc-IG-S97">
-                                        <rect key="frame" x="46" y="162" width="322" height="34"/>
+                                        <rect key="frame" x="46" y="162" width="313.5" height="34"/>
                                         <attributedString key="attributedText">
                                             <fragment content="email">
                                                 <attributes>
@@ -44,7 +43,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-eh-b83">
-                                        <rect key="frame" x="46" y="225" width="322" height="34"/>
+                                        <rect key="frame" x="46" y="225" width="313.5" height="34"/>
                                         <attributedString key="attributedText">
                                             <fragment content="password">
                                                 <attributes>
@@ -56,7 +55,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFp-Fy-jjy">
-                                        <rect key="frame" x="46" y="325" width="322" height="50"/>
+                                        <rect key="frame" x="46" y="325" width="313.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ae6-9y-npB"/>
                                         </constraints>
@@ -76,10 +75,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L16-VU-A6d">
-                                        <rect key="frame" x="46" y="385" width="322" height="50"/>
+                                        <rect key="frame" x="46" y="385" width="313.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Brk-ki-b1M"/>
-                                            <constraint firstAttribute="width" constant="322" id="Jp1-X8-F09"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray">
@@ -119,14 +117,13 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zDm-om-R7H" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="38F-W2-8if"/>
-                            <constraint firstItem="zDm-om-R7H" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="RuR-2A-TU4"/>
-                            <constraint firstItem="zDm-om-R7H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bsg-zH-lFX"/>
-                            <constraint firstItem="zDm-om-R7H" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cbh-0r-rQC"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="width" secondItem="zDm-om-R7H" secondAttribute="width" id="qoa-Yy-7aF"/>
+                            <constraint firstItem="zDm-om-R7H" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="38F-W2-8if"/>
+                            <constraint firstItem="zDm-om-R7H" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="RuR-2A-TU4"/>
+                            <constraint firstItem="zDm-om-R7H" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="bsg-zH-lFX"/>
+                            <constraint firstItem="zDm-om-R7H" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="cbh-0r-rQC"/>
+                            <constraint firstAttribute="width" secondItem="zDm-om-R7H" secondAttribute="width" id="qoa-Yy-7aF"/>
                         </constraints>
                     </view>
                     <connections>

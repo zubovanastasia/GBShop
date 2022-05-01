@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usk-5b-06V">
-                                <rect key="frame" x="85" y="106" width="242" height="43.5"/>
+                                <rect key="frame" x="85" y="62" width="242" height="43.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="GBShop">
                                         <attributes>
@@ -30,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-Wi-XY0">
-                                <rect key="frame" x="55" y="229.5" width="306" height="55"/>
+                                <rect key="frame" x="55" y="185.5" width="306" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="MLI-6o-F9c"/>
                                 </constraints>
@@ -50,10 +49,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-DM-E7i">
-                                <rect key="frame" x="55" y="320.5" width="306" height="55"/>
+                                <rect key="frame" x="55" y="276.5" width="306" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Cme-yz-7ix" userLabel="height = 55"/>
-                                    <constraint firstAttribute="width" constant="306" id="qbA-aJ-usW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray">
@@ -71,17 +69,16 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Nry-Wi-XY0" firstAttribute="top" secondItem="usk-5b-06V" secondAttribute="bottom" constant="80" id="89z-2r-QOn"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="usk-5b-06V" secondAttribute="trailing" constant="87" id="DPu-N8-aUk"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tzv-DM-E7i" secondAttribute="trailing" constant="53" id="XXg-rK-EUO"/>
-                            <constraint firstItem="Nry-Wi-XY0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="XyL-OL-4P1"/>
-                            <constraint firstItem="usk-5b-06V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="62" id="cIm-Xd-S4D"/>
-                            <constraint firstItem="tzv-DM-E7i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="fRY-Wk-IrX"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nry-Wi-XY0" secondAttribute="trailing" constant="53" id="hB5-fY-cQa"/>
-                            <constraint firstItem="usk-5b-06V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="s6G-fN-Rke"/>
+                            <constraint firstAttribute="trailing" secondItem="usk-5b-06V" secondAttribute="trailing" constant="87" id="DPu-N8-aUk"/>
+                            <constraint firstAttribute="trailing" secondItem="tzv-DM-E7i" secondAttribute="trailing" constant="53" id="XXg-rK-EUO"/>
+                            <constraint firstItem="Nry-Wi-XY0" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="55" id="XyL-OL-4P1"/>
+                            <constraint firstItem="usk-5b-06V" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="62" id="cIm-Xd-S4D"/>
+                            <constraint firstItem="tzv-DM-E7i" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="55" id="fRY-Wk-IrX"/>
+                            <constraint firstAttribute="trailing" secondItem="Nry-Wi-XY0" secondAttribute="trailing" constant="53" id="hB5-fY-cQa"/>
+                            <constraint firstItem="usk-5b-06V" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="85" id="s6G-fN-Rke"/>
                             <constraint firstItem="tzv-DM-E7i" firstAttribute="top" secondItem="Nry-Wi-XY0" secondAttribute="bottom" constant="36" id="vD5-Ql-rWm"/>
                         </constraints>
                     </view>
