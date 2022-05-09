@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     let request = RequestFactory()
     var catalog: [CatalogResponse] = []
     
@@ -19,6 +19,10 @@ class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
+        self.setupTableView()
+    }
+    // MARK: - Setup methods.
+    private func setupTableView() {
         let factory = request.makeCatalogRequestFactory()
         factory.getCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
@@ -38,5 +42,21 @@ class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "catalogCell") as? CatalogCell
         cell?.configure(catalog[indexPath.row])
         return cell ?? UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "segueGoods", sender: cell)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let cell = sender as? CatalogCell else {
+            return
+        }
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        let goodsPage = segue.destination as! GoodsController
+        goodsPage.productId = catalog[indexPath.row].productId
     }
 }
