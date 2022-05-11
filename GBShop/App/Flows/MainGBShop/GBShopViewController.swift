@@ -9,11 +9,16 @@ import Foundation
 import UIKit
 
 class GBShopViewController: UIViewController {
+    @IBOutlet private weak var signup: UIButton!
+    @IBOutlet private weak var login: UIButton!
     private let request = RequestFactory()
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "mainVC"
+        signup.accessibilityIdentifier = "signupMain"
+        login.accessibilityIdentifier = "loginMain"
         makeAuthRequest()
         makeSignupRequest()
         makeChangeUserDataRequest()

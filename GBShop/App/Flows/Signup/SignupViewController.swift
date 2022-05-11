@@ -16,6 +16,7 @@ class SignupViewController: UIViewController {
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
+        view.accessibilityIdentifier = "signupVC"
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
