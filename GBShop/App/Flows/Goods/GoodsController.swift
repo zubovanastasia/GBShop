@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 class GoodsController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -29,6 +30,7 @@ class GoodsController: UIViewController {
     // MARK: - Setup methods.
     private func getProduct(completionHandler: @escaping (GoodResponse) -> Void) {
         guard let productId = productId else {
+            Crashlytics.crashlytics().log("product not found")
             return
         }
         let factory = request.makeGoodRequestFactory()
@@ -42,8 +44,12 @@ class GoodsController: UIViewController {
         }
     }
     private func getUserReview(completionHandler: @escaping ([ReviewResponse]?) -> Void) {
+        guard let productId = productId else {
+            Crashlytics.crashlytics().log("reviews not found")
+            return
+        }
         let factory = request.makeReviewsRequestFactory()
-        factory.getReviews(productId: productId ?? 0) { response in
+        factory.getReviews(productId: productId) { response in
             switch response.result {
             case .success(let result):
                 completionHandler(result)
@@ -66,6 +72,7 @@ class GoodsController: UIViewController {
                 if let imageURL = good.imageProduct, let url = URL(string: imageURL) {
                     self.imageProduct.loadImageURL(url: url)
                 }
+                LogLogin.logLogin(name: "product", key: "productItem", value: self.product?.productName ?? "no")
             }
         }
     }
@@ -74,6 +81,7 @@ class GoodsController: UIViewController {
             DispatchQueue.main.async {
                 self.nameReviewer.text = "\(String(review!.count))"
                 self.review.text = "\(String(review!.count))"
+                LogLogin.logLogin(name: "review", key: "result", value: "success" )
             }
         }
     }
@@ -88,6 +96,7 @@ class GoodsController: UIViewController {
     }
     @IBAction private func addToCart(_ sender: Any) {
         guard let product = product else {
+            Crashlytics.crashlytics().log("product not found")
             return
         }
         let factory = request.makeBasketRequestFactory()
@@ -101,6 +110,7 @@ class GoodsController: UIViewController {
                                                 productPrice: product.price,
                                                 imageProduct: product.imageProduct)
                     BasketSingle.shared.items.append(item)
+                    LogLogin.logLogin(name: "add to cart", key: "result", value: "success")
                     self.showAddToBasketAlert()
                 }
             case .failure(let error):

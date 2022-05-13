@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 class LoginViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -46,6 +47,7 @@ class LoginViewController: UIViewController {
     }
     // MARK: - Controller show methods.
     private func showTabBar() {
+        LogLogin.logLogin(name: "login", key: "result", value: "success")
         let storyboard = UIStoryboard(name: "GBShopTabBar", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
         viewController?.modalPresentationStyle = .fullScreen
@@ -77,6 +79,7 @@ class LoginViewController: UIViewController {
         self.scrollView.endEditing(true)
     }
     @objc private func handleKeyboardWillShow() {
+        Crashlytics.crashlytics().log("user not found")
         self.scrollView.contentInset.bottom += 110
     }
     @objc private func handleKeyboardWillHide() {
@@ -92,6 +95,7 @@ class LoginViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     private func showError(_ errorMessage: String) {
+        LogLogin.logLogin(name: "login", key: "result", value: "failed")
         let alertController = UIAlertController(title: "Ошибка авторизации",
                                                 message: errorMessage,
                                                 preferredStyle: .alert)

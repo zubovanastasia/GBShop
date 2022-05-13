@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private weak var tableView: UITableView!
@@ -24,6 +25,7 @@ class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     // MARK: - Setup methods.
     private func setupTableView() {
+        LogLogin.logLogin(name: "catalog", key: "result", value: "success")
         let factory = request.makeCatalogRequestFactory()
         factory.getCatalog(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
@@ -52,9 +54,11 @@ class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let cell = sender as? CatalogCell else {
+            Crashlytics.crashlytics().log("catalog cell not found")
             return
         }
         guard let indexPath = tableView.indexPath(for: cell) else {
+            Crashlytics.crashlytics().log("catalog indexPath not found")
             return
         }
         let goodsPage = segue.destination as! GoodsController
