@@ -18,6 +18,7 @@ class GoodsController: UIViewController {
     @IBOutlet private weak var review: UILabel!
     let request = RequestFactory()
     var productId: Int?
+    var product: GoodResponse?
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -54,6 +55,7 @@ class GoodsController: UIViewController {
     private func setupViewGoods() {
         getProduct { good in
             DispatchQueue.main.async {
+                self.product = good
                 self.nameProduct.text = good.productName ?? "name"
                 self.descriptionProduct.text = good.description ?? "description"
                 if let itemPrice = good.price {
@@ -75,10 +77,36 @@ class GoodsController: UIViewController {
             }
         }
     }
+    // MARK: - Private methods.
+    private func showAddToBasketAlert() {
+        let alert = UIAlertController(title: "Корзина", message: "Товар добавлен в корзину.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     // MARK: - IBAction methods.
     @IBAction private func openDescription(_ sender: Any) {
     }
     @IBAction private func addToCart(_ sender: Any) {
+        guard let product = product else {
+            return
+        }
+        let factory = request.makeBasketRequestFactory()
+        let request = BasketUser(productId: product.productId, quantity: 1)
+        factory.addToBasket(basket: request) { response in
+            switch response.result {
+            case .success:
+                DispatchQueue.main.async {
+                    let item = BasketSingleItem(productId: product.productId,
+                                                productName: product.productName,
+                                                productPrice: product.price,
+                                                imageProduct: product.imageProduct)
+                    BasketSingle.shared.items.append(item)
+                    self.showAddToBasketAlert()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     @IBAction private func addToWishlist(_ sender: Any) {
     }

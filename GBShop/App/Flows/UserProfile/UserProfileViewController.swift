@@ -14,6 +14,7 @@ class UserProfileViewController: UIViewController {
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
+        view.accessibilityIdentifier = "profileUserVC"
         super.viewDidLoad()
     }
     // MARK: - Controller show methods.

@@ -16,6 +16,7 @@ class CatalogController: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "catalogVC"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension

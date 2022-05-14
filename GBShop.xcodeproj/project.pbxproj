@@ -65,6 +65,8 @@
 		63BDCEF12809C4F600365156 /* BasketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEF02809C4F600365156 /* BasketResponse.swift */; };
 		63BDCEF32809C56F00365156 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDCEF22809C56F00365156 /* Basket.swift */; };
 		63BDCEF5280D6E9800365156 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BDCEF4280D6E9800365156 /* Signup.storyboard */; };
+		63EEAD83282A588C00C0B99F /* BasketSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEAD82282A588C00C0B99F /* BasketSingle.swift */; };
+		63EEAD86282A59D400C0B99F /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEAD85282A59D400C0B99F /* BasketCell.swift */; };
 		63F6436B280EE93700E33C7F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F6436A280EE93700E33C7F /* UserProfileViewController.swift */; };
 		63F6436D280EE96D00E33C7F /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F6436C280EE96D00E33C7F /* UserProfile.storyboard */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,8 @@
 		63BDCEF02809C4F600365156 /* BasketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResponse.swift; sourceTree = "<group>"; };
 		63BDCEF22809C56F00365156 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		63BDCEF4280D6E9800365156 /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		63EEAD82282A588C00C0B99F /* BasketSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketSingle.swift; sourceTree = "<group>"; };
+		63EEAD85282A59D400C0B99F /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
 		63F6436A280EE93700E33C7F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		63F6436C280EE96D00E33C7F /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,15 +257,16 @@
 		633263BE27E9EDBE002759D3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				63EEAD84282A595600C0B99F /* New Group */,
 				634E239B280D86320090F95D /* MainGBShop */,
 				634E239D280D865C0090F95D /* Login */,
 				634E239C280D864D0090F95D /* Signup */,
 				63F64369280EE91D00E33C7F /* UserProfile */,
 				634E239E280D86640090F95D /* ChangeUserData */,
 				63363FAD28182D40007C530D /* TabBar */,
-				638AF4F628184B6D00528729 /* Basket */,
 				638AF4FB28184DEE00528729 /* Catalog */,
 				638F6435281ED4CA002A0F03 /* Goods */,
+				638AF4F628184B6D00528729 /* Basket */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				63BDCEE92805A7BE00365156 /* AddReviewResponse.swift */,
 				63BDCEEE2809C49100365156 /* BasketUser.swift */,
 				63BDCEF02809C4F600365156 /* BasketResponse.swift */,
+				63EEAD82282A588C00C0B99F /* BasketSingle.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 			children = (
 				63363FB028183405007C530D /* Basket.storyboard */,
 				63363FB228183435007C530D /* BasketController.swift */,
+				63EEAD85282A59D400C0B99F /* BasketCell.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -500,6 +507,13 @@
 				63BDCEF22809C56F00365156 /* Basket.swift */,
 			);
 			path = Basket;
+			sourceTree = "<group>";
+		};
+		63EEAD84282A595600C0B99F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		63F64369280EE91D00E33C7F /* UserProfile */ = {
@@ -673,6 +687,7 @@
 				634E239A280D86220090F95D /* ChangeUserDataViewController.swift in Sources */,
 				6332640127F73C25002759D3 /* GoodRequestFactory.swift in Sources */,
 				633263F927F3C02C002759D3 /* Catalog.swift in Sources */,
+				63EEAD83282A588C00C0B99F /* BasketSingle.swift in Sources */,
 				633263D427ECE152002759D3 /* ErrorParser.swift in Sources */,
 				63BDCEEA2805A7BE00365156 /* AddReviewResponse.swift in Sources */,
 				638AF4F828184DD900528729 /* CatalogController.swift in Sources */,
@@ -692,6 +707,7 @@
 				6332640327F73C73002759D3 /* Good.swift in Sources */,
 				633263E527EE4702002759D3 /* SignupRequestFactory.swift in Sources */,
 				633263EB27EE492E002759D3 /* ChangeUserData.swift in Sources */,
+				63EEAD86282A59D400C0B99F /* BasketCell.swift in Sources */,
 				63363FAF28182DE4007C530D /* GBShopTabBar.swift in Sources */,
 				63B7CA04281BF47800123DF2 /* LoadUIImageView.swift in Sources */,
 				633263C927ECE0A5002759D3 /* Login.swift in Sources */,

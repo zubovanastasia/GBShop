@@ -12,11 +12,19 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var loginText: UITextField!
     @IBOutlet private weak var passwordText: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
     private let request = RequestFactory()
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "loginVC"
+        loginText.accessibilityIdentifier = "login"
+        passwordText.accessibilityIdentifier = "password"
+        loginButton.accessibilityIdentifier = "loginButton"
+        cancelButton.accessibilityIdentifier = "cancelButton"
+        
         addGesture()
         loginText.text = "login"
         passwordText.text = "password"

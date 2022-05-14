@@ -161,6 +161,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="JDN-VN-5TD"/>
                     <connections>
+                        <outlet property="cancelButton" destination="QCk-fK-cl8" id="jNt-rW-zer"/>
+                        <outlet property="loginButton" destination="x39-oa-W42" id="WZF-K0-kdl"/>
                         <outlet property="loginText" destination="fSO-7D-CMy" id="tSJ-y4-cPi"/>
                         <outlet property="passwordText" destination="umH-w3-iLN" id="VLF-ml-4T9"/>
                         <outlet property="scrollView" destination="vAc-mb-IrT" id="wvr-6h-stq"/>
