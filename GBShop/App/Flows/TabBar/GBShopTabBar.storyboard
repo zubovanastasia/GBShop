@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jGa-sw-tc5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shop Tab Bar-->
+        <scene sceneID="0Ut-wb-qQb">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBar" id="jGa-sw-tc5" customClass="GBShopTabBar" customModule="GBShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rLD-x1-s3s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OmV-I1-gFB" kind="relationship" relationship="viewControllers" id="4sn-Ah-Hdd"/>
+                        <segue destination="YVh-OV-uWf" kind="relationship" relationship="viewControllers" id="x56-JC-dcv"/>
+                        <segue destination="RVn-A2-jnn" kind="relationship" relationship="viewControllers" id="e6R-43-pj5"/>
+                        <segue destination="ytP-vJ-H9h" kind="relationship" relationship="viewControllers" id="oZi-3M-mZQ"/>
+                        <segue destination="9RE-d1-GqL" kind="relationship" relationship="viewControllers" id="wbA-Iq-7XJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyX-sG-MVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-790" y="-17"/>
+        </scene>
+        <!--Корзина-->
+        <scene sceneID="4uv-PQ-QYe">
+            <objects>
+                <navigationController id="RVn-A2-jnn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Корзина" id="DD3-bB-GW2">
+                        <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cKf-wL-Zj2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dLK-jP-d4h" kind="relationship" relationship="rootViewController" id="zuT-Ah-Rmb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GM5-rN-qD6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791" y="682"/>
+        </scene>
+        <!--Каталог-->
+        <scene sceneID="m1A-iW-KGm">
+            <objects>
+                <navigationController id="YVh-OV-uWf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Каталог" id="6IF-94-wIa">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6RM-na-3vq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lEh-Nk-kTc" kind="relationship" relationship="rootViewController" id="a1L-BA-xnC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4YH-ew-u0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1425" y="682"/>
+        </scene>
+        <!--Профиль-->
+        <scene sceneID="n29-9Z-WTU">
+            <objects>
+                <navigationController id="ytP-vJ-H9h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Профиль" id="l2B-V4-b4q">
+                        <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d9S-4v-5my">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cFg-I0-Rwn" kind="relationship" relationship="rootViewController" id="HFd-lb-XXB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmY-Ye-A9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-154" y="682"/>
+        </scene>
+        <!--Catalog-->
+        <scene sceneID="IaZ-Rk-B3P">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Catalog" id="lEh-Nk-kTc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PWG-Zi-hZ3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZg-3e-Cnu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1425" y="1046"/>
+        </scene>
+        <!--Basket-->
+        <scene sceneID="Pzo-96-CWt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Basket" id="dLK-jP-d4h" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6hi-pe-Lxq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QIm-yz-IG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791" y="1046"/>
+        </scene>
+        <!--UserProfile-->
+        <scene sceneID="iTh-Fr-tib">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserProfile" id="cFg-I0-Rwn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="heH-jo-0go"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vdt-Zi-NyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-154" y="1046"/>
+        </scene>
+        <!--Главная-->
+        <scene sceneID="yyz-KH-v34">
+            <objects>
+                <navigationController id="OmV-I1-gFB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Главная" image="bookmark" catalog="system" id="ji9-kx-vCV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FIe-MT-xez">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6k-uE-7k1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2057" y="682"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="OqK-WU-jU6">
+            <objects>
+                <navigationController id="9RE-d1-GqL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Избранное" id="36A-AD-VhP">
+                        <imageReference key="image" image="suit.heart" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rcb-fp-hcr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lre-qb-6He" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="682"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
+    </resources>
+</document>

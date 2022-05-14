@@ -37,11 +37,11 @@ class LoginViewController: UIViewController {
         return true
     }
     // MARK: - Controller show methods.
-    private func showUserProfile() {
-        let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
+    private func showTabBar() {
+        let storyboard = UIStoryboard(name: "GBShopTabBar", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
         viewController?.modalPresentationStyle = .fullScreen
-        if let viewController = viewController as? UserProfileViewController {
+        if let viewController = viewController as? GBShopTabBar {
             self.present(viewController, animated: true)
         }
     }
@@ -100,7 +100,7 @@ class LoginViewController: UIViewController {
         factory.login(user: user) { response in
             DispatchQueue.main.async {
                 switch response.result {
-                case .success(let success): success.result == 1 ? self.showUserProfile() : self.showError(success.errorMessage ?? "Неизвестная ошибка.")
+                case .success(let success): success.result == 1 ? self.showTabBar() : self.showError(success.errorMessage ?? "Неизвестная ошибка.")
                 case .failure(let error): self.showError(error.localizedDescription)
                 }
             }

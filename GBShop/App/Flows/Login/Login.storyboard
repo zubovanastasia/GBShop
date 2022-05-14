@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dXI-bQ-WW3">
+            <objects>
+                <navigationController storyboardIdentifier="navigationLogin" id="gwm-Aq-DNv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jBD-4B-LZ6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6NW-dR-HbO" kind="relationship" relationship="rootViewController" id="8ed-Zz-XPI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRc-zV-AnV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-723" y="17"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="ZeL-uo-fIH">
             <objects>
@@ -17,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-mb-IrT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaD-K3-eYJ">
                                         <rect key="frame" x="46" y="57" width="218" height="42"/>
@@ -133,25 +149,37 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="XJh-HL-WQF"/>
+                        <viewLayoutGuide key="safeArea" id="lw1-8B-ukm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vAc-mb-IrT" firstAttribute="trailing" secondItem="Xfd-xs-P6C" secondAttribute="trailing" id="2ZO-Wx-5Kg"/>
-                            <constraint firstItem="vAc-mb-IrT" firstAttribute="bottom" secondItem="XJh-HL-WQF" secondAttribute="bottom" id="MTg-MJ-4Wi"/>
-                            <constraint firstItem="XJh-HL-WQF" firstAttribute="width" secondItem="vAc-mb-IrT" secondAttribute="width" id="SOH-9p-SRS"/>
+                            <constraint firstItem="vAc-mb-IrT" firstAttribute="bottom" secondItem="Xfd-xs-P6C" secondAttribute="bottom" id="MTg-MJ-4Wi"/>
+                            <constraint firstAttribute="width" secondItem="vAc-mb-IrT" secondAttribute="width" id="SOH-9p-SRS"/>
                             <constraint firstItem="vAc-mb-IrT" firstAttribute="leading" secondItem="Xfd-xs-P6C" secondAttribute="leading" id="jD3-Ha-jF3"/>
-                            <constraint firstItem="vAc-mb-IrT" firstAttribute="top" secondItem="XJh-HL-WQF" secondAttribute="top" id="zFN-yr-ATT"/>
+                            <constraint firstItem="vAc-mb-IrT" firstAttribute="top" secondItem="Xfd-xs-P6C" secondAttribute="top" id="zFN-yr-ATT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JDN-VN-5TD"/>
                     <connections>
                         <outlet property="loginText" destination="fSO-7D-CMy" id="tSJ-y4-cPi"/>
                         <outlet property="passwordText" destination="umH-w3-iLN" id="VLF-ml-4T9"/>
                         <outlet property="scrollView" destination="vAc-mb-IrT" id="wvr-6h-stq"/>
+                        <segue destination="mho-08-E9R" kind="show" identifier="tabBar" id="exz-UE-abb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9d-yU-1CR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="16.741071428571427"/>
+            <point key="canvasLocation" x="55" y="17"/>
+        </scene>
+        <!--GBShopTabBar-->
+        <scene sceneID="hg3-8c-KR6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GBShopTabBar" id="mho-08-E9R" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nWP-tF-mRq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTK-yu-w1B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="7"/>
         </scene>
     </scenes>
     <resources>
