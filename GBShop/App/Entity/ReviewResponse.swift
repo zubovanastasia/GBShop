@@ -9,5 +9,6 @@ import Foundation
 
 struct ReviewResponse: Codable {
     let userId: Int?
+    let userName: String?
     let reviewText: String?
 }

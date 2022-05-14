@@ -9,6 +9,10 @@ import Foundation
 
 struct GoodResponse: Codable {
     let result: Int?
+    let productName: String?
+    let productId: Int?
     let price: Int?
     let description: String?
+    let imageProduct: String?
+    let review: [ReviewResponse]?
 }
