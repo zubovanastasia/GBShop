@@ -15,19 +15,19 @@ class Catalog: AbstractRequestFactory {
     let baseUrl = URL(string: "https://afternoon-hollows-69135.herokuapp.com/")!
     
     init(errorParser: AbstractErrorParser,
-        sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
-            self.errorParser = errorParser
-            self.sessionManager = sessionManager
-            self.queue = queue
-        }
+         sessionManager: Session,
+         queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+        self.errorParser = errorParser
+        self.sessionManager = sessionManager
+        self.queue = queue
+    }
 }
 
 extension Catalog: CatalogRequestFactory {
     func getCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[CatalogResponse]>) -> Void) {
         let requestModel = Catalog(baseUrl: baseUrl,
-                                       pageNumber: pageNumber,
-                                       categoryId: categoryId)
+                                   pageNumber: pageNumber,
+                                   categoryId: categoryId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
