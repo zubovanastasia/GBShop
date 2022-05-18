@@ -17,11 +17,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="OmV-I1-gFB" kind="relationship" relationship="viewControllers" id="4sn-Ah-Hdd"/>
                         <segue destination="YVh-OV-uWf" kind="relationship" relationship="viewControllers" id="x56-JC-dcv"/>
                         <segue destination="RVn-A2-jnn" kind="relationship" relationship="viewControllers" id="e6R-43-pj5"/>
                         <segue destination="ytP-vJ-H9h" kind="relationship" relationship="viewControllers" id="oZi-3M-mZQ"/>
                         <segue destination="9RE-d1-GqL" kind="relationship" relationship="viewControllers" id="wbA-Iq-7XJ"/>
+                        <segue destination="lKk-yV-dS8" kind="relationship" relationship="viewControllers" id="vo3-Fn-gFT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyX-sG-MVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,20 +115,6 @@
             </objects>
             <point key="canvasLocation" x="-154" y="1046"/>
         </scene>
-        <!--Главная-->
-        <scene sceneID="yyz-KH-v34">
-            <objects>
-                <navigationController id="OmV-I1-gFB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Главная" image="bookmark" catalog="system" id="ji9-kx-vCV"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FIe-MT-xez">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c6k-uE-7k1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2057" y="682"/>
-        </scene>
         <!--Избранное-->
         <scene sceneID="OqK-WU-jU6">
             <objects>
@@ -145,11 +131,40 @@
             </objects>
             <point key="canvasLocation" x="484" y="682"/>
         </scene>
+        <!--Карта-->
+        <scene sceneID="HNB-I6-XHF">
+            <objects>
+                <navigationController id="lKk-yV-dS8" userLabel="Карта" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Карта" id="1Cm-AE-2Vz">
+                        <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Cc-2g-61L">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GQ2-4d-oaL" kind="relationship" relationship="rootViewController" id="Vgd-qN-r5B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nam-18-bhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119" y="682"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="3oK-jq-cQH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="GQ2-4d-oaL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lN6-iD-y5U"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Cd-TJ-HhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="1037"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
     </resources>
