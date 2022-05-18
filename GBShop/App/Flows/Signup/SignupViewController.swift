@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 class SignupViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -83,6 +84,7 @@ class SignupViewController: UIViewController {
         self.scrollView.endEditing(true)
     }
     @objc private func handleKeyboardWillShow() {
+        Crashlytics.crashlytics().log("user not found")
         self.scrollView.contentInset.bottom += 110
     }
     @objc private func handleKeyboardWillHide() {

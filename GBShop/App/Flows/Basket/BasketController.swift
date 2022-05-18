@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 protocol BasketDelegate {
     func deleteItem(_ index: Int)
@@ -20,6 +21,7 @@ class BasketController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: - ViewController methods.
     override func viewDidLoad() {
         super.viewDidLoad()
+        LogLogin.logLogin(name: "cart", key: "result", value: "success")
     }
     // MARK: - Delegate and DataSource methods.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +59,7 @@ class BasketController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 DispatchQueue.main.async {
                     self.present(alert, animated: true, completion: {
                         BasketSingle.shared.items = []
+                        LogLogin.logLogin(name: "checkout", key: "result", value: "success")
                         self.tableView.reloadData()
                     })
                 }
@@ -69,6 +72,7 @@ class BasketController: UIViewController, UITableViewDelegate, UITableViewDataSo
 extension BasketController: BasketDelegate {
     func deleteItem(_ index: Int) {
         guard let itemName = BasketSingle.shared.items[index].productName else {
+            Crashlytics.crashlytics().log("itemName not found")
             return
         }
         let factory = request.makeBasketRequestFactory()

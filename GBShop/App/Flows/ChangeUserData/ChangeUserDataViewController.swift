@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCrashlytics
 
 class ChangeUserDataViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -78,6 +79,7 @@ class ChangeUserDataViewController: UIViewController {
         self.scrollView.endEditing(true)
     }
     @objc private func handleKeyboardWillShow() {
+        Crashlytics.crashlytics().log("user not found")
         self.scrollView.contentInset.bottom += 110
     }
     @objc private func handleKeyboardWillHide() {
