@@ -23,7 +23,7 @@ class MapController: UIViewController {
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
     var markers = [GMSMarker]()
-    let mapDB = MapRealmDB()
+    let mapDB = RealmDB()
     let locationObject = LocationObject()
     var task: UIBackgroundTaskIdentifier?
     var locationsMap = [Location]()

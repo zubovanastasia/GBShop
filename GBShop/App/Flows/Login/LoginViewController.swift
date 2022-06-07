@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import FirebaseCrashlytics
+import Realm
+import RealmSwift
 
 class LoginViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -16,6 +18,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     private let request = RequestFactory()
+    private let loginDB = RealmDB()
+    private var users: Results<User>?
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -25,8 +29,9 @@ class LoginViewController: UIViewController {
         passwordText.accessibilityIdentifier = "password"
         loginButton.accessibilityIdentifier = "loginButton"
         cancelButton.accessibilityIdentifier = "cancelButton"
-        
         addGesture()
+        
+        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
         loginText.text = "login"
         passwordText.text = "password"
     }
@@ -38,6 +43,9 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     // MARK: - User data form method.
+    private func loadUser() {
+        users = loginDB.loadUser()
+    }
     private func formFill() -> Bool {
         guard loginText.text != "",
               passwordText.text != "" else {
@@ -107,16 +115,24 @@ class LoginViewController: UIViewController {
         guard formFill() else { return
             self.showErrorAlert()
         }
-        let factory = request.makeLoginRequestFactory()
-        let user = User(login: loginText.text, password: passwordText.text)
-        factory.login(user: user) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let success): success.result == 1 ? self.showTabBar() : self.showError(success.errorMessage ?? "Неизвестная ошибка.")
-                case .failure(let error): self.showError(error.localizedDescription)
-                }
-            }
+        guard let users = users else {
+            return
         }
+        if users.contains(where: { $0.login == loginText.text && $0.password == passwordText.text }) {
+            showTabBar()
+        } else {
+            showErrorAlert()
+        }
+        /*   let factory = request.makeLoginRequestFactory()
+         let user = User(login: loginText.text, password: passwordText.text)
+         factory.login(user: user) { response in
+         DispatchQueue.main.async {
+         switch response.result {
+         case .success(let success): success.result == 1 ? self.showTabBar() : self.showError(success.errorMessage ?? "Неизвестная ошибка.")
+         case .failure(let error): self.showError(error.localizedDescription)
+         }
+         }
+         }*/
     }
     @IBAction private func cancelButton(_ sender: Any) {
         self.showMainViewController()

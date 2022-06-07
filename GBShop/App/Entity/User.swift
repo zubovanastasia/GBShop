@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-struct User: Codable {
+final class User: Object, Codable {
     let id: Int?
-    let login: String?
-    let password: String?
+    @objc dynamic var login = ""
+    @objc dynamic var password = ""
     let email: String?
     let gender: String?
     let creditCard: String?
@@ -18,7 +20,12 @@ struct User: Codable {
     let name: String?
     let lastname: String?
     
-    init (id: Int? = nil, login: String? = nil, password: String? = nil, email: String? = nil, gender: String? = nil, creditCard: String? = nil, bio: String? = nil, name: String? = nil, lastname: String? = nil) {
+    convenience init(login: String, password: String, email: String) {
+        self.init()
+        self.login = login
+        self.password = password
+    }
+    init (id: Int? = nil, login: String, password: String, email: String? = nil, gender: String? = nil, creditCard: String? = nil, bio: String? = nil, name: String? = nil, lastname: String? = nil) {
         self.id = id
         self.login = login
         self.password = password
@@ -29,4 +36,7 @@ struct User: Codable {
         self.name = name
         self.lastname = lastname
     }
+}
+final class UserObject: Object {
+    let users = List<User>()
 }

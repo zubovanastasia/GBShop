@@ -49,7 +49,7 @@ class BasketController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: - IBAction methods.
     @IBAction private func checkout(_ sender: Any) {
         let factory = request.makeBasketRequestFactory()
-        let user = User(id: 123)
+        let user = User(login: "", password: "")
         let alert = UIAlertController(title: "Корзина", message: "Спасибо за покупку!", preferredStyle: .alert)
         let action = UIAlertAction(title: "ОК", style: .default, handler: nil)
         alert.addAction(action)

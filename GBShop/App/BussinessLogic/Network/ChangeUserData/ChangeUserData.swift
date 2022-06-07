@@ -39,8 +39,8 @@ extension ChangeUserData {
         var parameters: Parameters? {
             return [
                 "id_user": user.id ?? 0,
-                "username": user.login ?? "",
-                "password": user.password ?? "",
+                "username": user.login,
+                "password": user.password,
                 "email": user.email ?? "",
                 "gender": user.gender ?? "",
                 "credit_card": user.creditCard ?? "",
