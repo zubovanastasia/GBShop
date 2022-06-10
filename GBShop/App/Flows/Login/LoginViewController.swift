@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         passwordText.accessibilityIdentifier = "password"
         loginButton.accessibilityIdentifier = "loginButton"
         cancelButton.accessibilityIdentifier = "cancelButton"
+        setupUI()
         addGesture()
         
         print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
@@ -52,6 +53,9 @@ class LoginViewController: UIViewController {
             return false
         }
         return true
+    }
+    private func setupUI() {
+        loginText.autocorrectionType = .no
     }
     // MARK: - Controller show methods.
     private func showTabBar() {
