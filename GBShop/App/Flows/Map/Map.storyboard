@@ -24,6 +24,36 @@
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfV-Ix-2Gx">
+                                <rect key="frame" x="338.5" y="369" width="45.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.swap" catalog="system">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="displayLastRoute:" destination="Wwq-eT-HcL" eventType="touchUpInside" id="pLY-0r-DMf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUc-cg-xOn">
+                                <rect key="frame" x="30" y="344" width="43.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="stop" catalog="system">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopTrack:" destination="Wwq-eT-HcL" eventType="touchUpInside" id="yTV-Io-cEm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf7-ZW-OMv">
+                                <rect key="frame" x="30" y="294" width="40.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play" catalog="system">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startTrack:" destination="Wwq-eT-HcL" eventType="touchUpInside" id="PXv-xN-yRw"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiJ-XC-3Ku">
                                 <rect key="frame" x="173.5" y="831" width="67" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -63,8 +93,14 @@
                             <constraint firstItem="K5t-oD-Vhi" firstAttribute="leading" secondItem="dqp-1n-L2v" secondAttribute="leadingMargin" id="6FM-jo-jjc"/>
                             <constraint firstItem="GiJ-XC-3Ku" firstAttribute="leading" secondItem="dqp-1n-L2v" secondAttribute="leadingMargin" constant="153.5" id="8TF-Zf-baV"/>
                             <constraint firstItem="FtL-dt-qi8" firstAttribute="top" secondItem="K5t-oD-Vhi" secondAttribute="bottom" id="A1S-jq-7gF"/>
+                            <constraint firstItem="nf7-ZW-OMv" firstAttribute="leading" secondItem="dqp-1n-L2v" secondAttribute="leadingMargin" constant="10" id="IZq-ky-far"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GiJ-XC-3Ku" secondAttribute="trailing" constant="153.5" id="Ial-7j-ITs"/>
+                            <constraint firstItem="EfV-Ix-2Gx" firstAttribute="top" secondItem="ixR-iH-SzM" secondAttribute="bottom" constant="325" id="Knf-4U-3ta"/>
+                            <constraint firstItem="nf7-ZW-OMv" firstAttribute="top" secondItem="ixR-iH-SzM" secondAttribute="bottom" constant="250" id="O4S-6X-NF7"/>
+                            <constraint firstItem="sUc-cg-xOn" firstAttribute="top" secondItem="ixR-iH-SzM" secondAttribute="bottom" constant="300" id="SLT-cM-JYn"/>
+                            <constraint firstItem="sUc-cg-xOn" firstAttribute="leading" secondItem="dqp-1n-L2v" secondAttribute="leadingMargin" constant="10" id="bbR-cM-Cq5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rS5-3K-s2h" secondAttribute="trailing" id="idM-hq-k18"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EfV-Ix-2Gx" secondAttribute="trailing" constant="10" id="lsI-57-8n6"/>
                             <constraint firstItem="FtL-dt-qi8" firstAttribute="top" secondItem="rS5-3K-s2h" secondAttribute="bottom" id="nn8-YJ-4Vx"/>
                             <constraint firstItem="dUW-5g-2dC" firstAttribute="leading" secondItem="dqp-1n-L2v" secondAttribute="leadingMargin" id="ozy-6R-d91"/>
                             <constraint firstItem="FtL-dt-qi8" firstAttribute="top" secondItem="GiJ-XC-3Ku" secondAttribute="bottom" id="r7x-Vr-7Vh"/>
@@ -82,8 +118,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.triangle.swap" catalog="system" width="128" height="100"/>
         <image name="location.circle" catalog="system" width="128" height="121"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="play" catalog="system" width="120" height="128"/>
+        <image name="stop" catalog="system" width="128" height="113"/>
         <image name="target" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
