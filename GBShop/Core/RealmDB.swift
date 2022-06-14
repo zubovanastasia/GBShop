@@ -36,13 +36,15 @@ final class RealmDB {
             }
         }
     }
-    public func saveToRealm(_ coordinates: [CLLocation]) {
+    public func saveToRealm(_ coordinates: [CLLocationCoordinate2D]) {
         let locationObject = LocationObject()
-        let realm = try! Realm()
+        guard let realm = try? Realm() else {
+            return
+        }
         coordinates.forEach { coordinate in
             let location = Location()
-            location.latitude = coordinate.coordinate.latitude
-            location.longitude = coordinate.coordinate.longitude
+            location.latitude = coordinate.latitude
+            location.longitude = coordinate.longitude
             locationObject.coordinates.append(location)
         }
         do {

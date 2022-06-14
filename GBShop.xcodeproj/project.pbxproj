@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631EC219285611BA00A1B2E8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 631EC218285611BA00A1B2E8 /* RxCocoa */; };
+		631EC21B285611BA00A1B2E8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 631EC21A285611BA00A1B2E8 /* RxSwift */; };
+		631EC21D2857CACC00A1B2E8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631EC21C2857CACC00A1B2E8 /* LocationManager.swift */; };
 		6332638D27E9EA80002759D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332638C27E9EA80002759D3 /* AppDelegate.swift */; };
 		6332638F27E9EA80002759D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332638E27E9EA80002759D3 /* SceneDelegate.swift */; };
 		6332639627E9EA82002759D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6332639527E9EA82002759D3 /* Assets.xcassets */; };
@@ -107,6 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		631EC21C2857CACC00A1B2E8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6332638927E9EA80002759D3 /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6332638C27E9EA80002759D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6332638E27E9EA80002759D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				63D5E68128312FA5006D065F /* GooglePlaces in Frameworks */,
 				63535A1F283968200049FD64 /* Realm in Frameworks */,
 				63D5E67B28312FA5006D065F /* GoogleMapsBase in Frameworks */,
+				631EC21B285611BA00A1B2E8 /* RxSwift in Frameworks */,
+				631EC219285611BA00A1B2E8 /* RxCocoa in Frameworks */,
 				63593EA7282EA4BC008C5F8E /* FirebaseAuth in Frameworks */,
 				633263DD27ECE341002759D3 /* Alamofire in Frameworks */,
 				63535A21283968200049FD64 /* RealmSwift in Frameworks */,
@@ -555,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				63D5E67528312A00006D065F /* MapController.swift */,
+				631EC21C2857CACC00A1B2E8 /* LocationManager.swift */,
 				63D825612831341A00DCC5C6 /* Map.storyboard */,
 			);
 			path = Map;
@@ -597,6 +604,8 @@
 				63D5E68028312FA5006D065F /* GooglePlaces */,
 				63535A1E283968200049FD64 /* Realm */,
 				63535A20283968200049FD64 /* RealmSwift */,
+				631EC218285611BA00A1B2E8 /* RxCocoa */,
+				631EC21A285611BA00A1B2E8 /* RxSwift */,
 			);
 			productName = GBShop;
 			productReference = 6332638927E9EA80002759D3 /* GBShop.app */;
@@ -675,6 +684,7 @@
 				63593EA3282EA4BC008C5F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				63D5E67728312FA4006D065F /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
 				63535A1D283968200049FD64 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				631EC217285611BA00A1B2E8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 6332638A27E9EA80002759D3 /* Products */;
 			projectDirPath = "";
@@ -741,6 +751,7 @@
 				633263CB27ECE0C7002759D3 /* RequestFactory.swift in Sources */,
 				6332638F27E9EA80002759D3 /* SceneDelegate.swift in Sources */,
 				633263ED27EE4CC3002759D3 /* Signup.swift in Sources */,
+				631EC21D2857CACC00A1B2E8 /* LocationManager.swift in Sources */,
 				638F6437281ED4F9002A0F03 /* GoodsController.swift in Sources */,
 				63BDCEE62805A52E00365156 /* ReviewRequestFactory.swift in Sources */,
 				63F6436B280EE93700E33C7F /* UserProfileViewController.swift in Sources */,
@@ -1156,6 +1167,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		631EC217285611BA00A1B2E8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		633263DB27ECE341002759D3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1191,6 +1210,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		631EC218285611BA00A1B2E8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 631EC217285611BA00A1B2E8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		631EC21A285611BA00A1B2E8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 631EC217285611BA00A1B2E8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		633263DC27ECE341002759D3 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 633263DB27ECE341002759D3 /* XCRemoteSwiftPackageReference "Alamofire" */;
