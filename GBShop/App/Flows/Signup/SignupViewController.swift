@@ -8,17 +8,25 @@
 import Foundation
 import UIKit
 import FirebaseCrashlytics
+import Realm
+import RealmSwift
 
 class SignupViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var emailText: UITextField!
     @IBOutlet private weak var passwordText: UITextField!
     private let request = RequestFactory()
+    private let signupDB = RealmDB()
+    private let realm = try! Realm()
+    private var users: Results<User>?
+    private var usertoDB = [User]()
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
         view.accessibilityIdentifier = "signupVC"
         super.viewDidLoad()
+        users = signupDB.loadUser()
+        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,27 +36,57 @@ class SignupViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     // MARK: - User data form method.
-    private func formFill() -> Bool {
+   /* private func formFill() -> Bool {
         guard emailText.text != "",
               passwordText.text != "" else {
             return false
         }
         return true
+    }*/
+    private func signNewUser() {
+        guard emailText.text != "" && passwordText.text != "" else {
+            showErrorAlert();
+            return
+        }
+        guard let users = users else {
+            return
+        }
+        if users.contains(where: { $0.login == emailText.text }) == true {
+            guard let index = users.firstIndex(where: { $0.login == emailText.text }) else {
+                return
+            }
+            try! realm.write ({
+                users[index].password = passwordText.text!
+            })
+            showErrorAlertUserDB()
+        } else {
+            usertoDB.append(User(login: emailText.text!, password: passwordText.text!))
+            signupDB.saveUser(usertoDB)
+            showSuccess()
+        }
     }
     // MARK: - Controller show methods.
-    private func showUserProfile() {
+    /*private func showUserProfile() {
         let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
         viewController?.modalPresentationStyle = .fullScreen
         if let viewController = viewController as? UserProfileViewController {
             self.present(viewController, animated: true)
         }
-    }
+    }*/
     private func showMainViewController() {
         let storyboard = UIStoryboard(name: "MainGBShop", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
         viewController?.modalPresentationStyle = .fullScreen
         if let viewController = viewController as? GBShopViewController {
+            self.present(viewController, animated: true)
+        }
+    }
+    private func showLoginViewController() {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        viewController?.modalPresentationStyle = .fullScreen
+        if let viewController = viewController as? LoginViewController {
             self.present(viewController, animated: true)
         }
     }
@@ -60,14 +98,30 @@ class SignupViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "ОК", style: .default))
         self.present(alertController, animated: true)
     }
-    private func showError(_ errorMessage: String) {
+    /*private func showError(_ errorMessage: String) {
         let alertController = UIAlertController(title: "Ошибка сервера",
                                                 message: errorMessage,
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "ОК", style: .default))
         self.present(alertController, animated: true)
+    }*/
+    private func showErrorAlertUserDB() {
+        let alertController = UIAlertController(title: "Ошибка",
+                                                message: "Пользователь уже зарегистрирован",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ОК", style: .cancel))
+        self.present(alertController, animated: true)
     }
-    
+    private func showSuccess() {
+        let alertController = UIAlertController(title: "Регистрация!",
+                                                message: "Регистрация прошла успешно",
+                                                preferredStyle: .alert)
+        let alertItem = UIAlertAction(title: "OK", style: .cancel) { [weak self] _ in
+            self?.showLoginViewController()
+        }
+        alertController.addAction(alertItem)
+        present(alertController, animated: true)
+    }
     // MARK: - Keyboard animation methods.
     private func addGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -92,7 +146,8 @@ class SignupViewController: UIViewController {
     }
     // MARK: - IBAction methods.
     @IBAction private func signupButton(_ sender: Any) {
-        guard formFill() else { return
+        signNewUser()
+        /*guard formFill() else { return
             self.showErrorAlert()
         }
         let factory = request.makeSignupRequestFactory()
@@ -104,7 +159,7 @@ class SignupViewController: UIViewController {
                 case .failure(let error): self.showError(error.localizedDescription)
                 }
             }
-        }
+        }*/
     }
     @IBAction private func cancelButton(_ sender: Any) {
         self.showMainViewController()

@@ -91,8 +91,8 @@ class ChangeUserDataViewController: UIViewController {
             self.showErrorAlert()
         }
         let factory = request.makeChangeUserDataRequestFactory()
-        let user = User(login: username.text,
-                        password: password.text,
+        let user = User(login: username.text ?? "",
+                        password: password.text ?? "",
                         email: email.text,
                         gender: String(gender.selectedSegmentIndex),
                         bio: age.text)

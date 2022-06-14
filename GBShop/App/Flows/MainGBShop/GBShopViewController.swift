@@ -87,7 +87,7 @@ class GBShopViewController: UIViewController {
     }
     func makeLogoutRequest() {
         let factory = request.makeLogoutRequestFactory()
-        let user = User(id: 123)
+        let user = User(login: "", password: "")
         factory.logout(user: user) { response in
             switch response.result {
             case .success(let result):
@@ -160,7 +160,7 @@ class GBShopViewController: UIViewController {
     // MARK: - Basket requests.
     func makeGetBasketRequest() {
         let factory = request.makeBasketRequestFactory()
-        factory.getBasket(user: User(id: 123)){ response in
+        factory.getBasket(user: User(login: "", password: "")){ response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -171,7 +171,7 @@ class GBShopViewController: UIViewController {
     }
     func makePayBasketRequest() {
         let factory = request.makeBasketRequestFactory()
-        factory.payBasket(user: User(id: 123)){ response in
+        factory.payBasket(user: User(login: "", password: "")){ response in
             switch response.result {
             case .success(let result):
                 print(result)

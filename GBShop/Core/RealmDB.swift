@@ -10,9 +10,23 @@ import Realm
 import RealmSwift
 import CoreLocation
 
-final class MapRealmDB {
+final class RealmDB {
     init() {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 7)
+    }
+    
+    public func saveUser(_ items: [User]) {
+        let realm = try! Realm()
+        do {
+            try! realm.write {
+                realm.add(items)
+            }
+        }
+    }
+    public func loadUser() -> Results<User> {
+        let realm = try! Realm()
+        let locations: Results<User> = realm.objects(User.self)
+        return locations
     }
     public func save(_ items: [Location]) {
         let realm = try! Realm()
@@ -37,7 +51,7 @@ final class MapRealmDB {
             }
         }
     }
-    public func load() -> Results<Location> {
+    public func loadLocation() -> Results<Location> {
         let realm = try! Realm()
         let locations: Results<Location> = realm.objects(Location.self)
         return locations
