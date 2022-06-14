@@ -26,6 +26,7 @@ class SignupViewController: UIViewController {
         view.accessibilityIdentifier = "signupVC"
         super.viewDidLoad()
         users = signupDB.loadUser()
+        setupUI()
         print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +65,9 @@ class SignupViewController: UIViewController {
             signupDB.saveUser(usertoDB)
             showSuccess()
         }
+    }
+    private func setupUI() {
+        emailText.autocorrectionType = .no
     }
     // MARK: - Controller show methods.
     /*private func showUserProfile() {
