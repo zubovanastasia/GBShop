@@ -10,6 +10,8 @@ import UIKit
 import FirebaseCrashlytics
 import Realm
 import RealmSwift
+import RxCocoa
+import RxSwift
 
 class LoginViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -20,6 +22,7 @@ class LoginViewController: UIViewController {
     private let request = RequestFactory()
     private let loginDB = RealmDB()
     private var users: Results<User>?
+    let disposeBag = DisposeBag()
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -30,9 +33,10 @@ class LoginViewController: UIViewController {
         loginButton.accessibilityIdentifier = "loginButton"
         cancelButton.accessibilityIdentifier = "cancelButton"
         setupUI()
+        configureLoginBindings()
         addGesture()
+        printRealmMessage()
         
-        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
         loginText.text = "login"
         passwordText.text = "password"
     }
@@ -43,7 +47,10 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-    // MARK: - User data form method.
+    // MARK: - Private methods.
+    private func printRealmMessage() {
+        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
     private func loadUser() {
         users = loginDB.loadUser()
     }
@@ -57,6 +64,24 @@ class LoginViewController: UIViewController {
     private func setupUI() {
         loginText.autocorrectionType = .no
     }
+    private func configureLoginBindings() {
+             let isLogin = loginText.rx.text.orEmpty
+                 .map { $0.count >= 1 }
+                 .share(replay: 1)
+             let isPassword = passwordText.rx.text.orEmpty
+                 .map { $0.count >= 1 }
+                 .share(replay: 1)
+             let isEverything = Observable.combineLatest(isLogin, isPassword) { (login, password) in
+                 return login && password
+             }
+             isEverything
+                 .bind(to: loginButton.rx.isEnabled)
+                 .disposed(by: disposeBag)
+             isEverything
+                 .map { $0 ? 1.0 : 0.5 }
+                 .bind(to: loginButton.rx.alpha)
+                 .disposed(by: disposeBag)
+         }
     // MARK: - Controller show methods.
     private func showTabBar() {
         LogLogin.logLogin(name: "login", key: "result", value: "success")

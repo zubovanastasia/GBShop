@@ -10,6 +10,8 @@ import UIKit
 import FirebaseCrashlytics
 import Realm
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class SignupViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -20,6 +22,7 @@ class SignupViewController: UIViewController {
     private let realm = try! Realm()
     private var users: Results<User>?
     private var usertoDB = [User]()
+    let disposeBag = DisposeBag()
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -27,7 +30,8 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         users = signupDB.loadUser()
         setupUI()
-        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+        configureSignupBindings()
+        printRealmMessage()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,7 +40,7 @@ class SignupViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-    // MARK: - User data form method.
+    // MARK: - Private methods.
    /* private func formFill() -> Bool {
         guard emailText.text != "",
               passwordText.text != "" else {
@@ -44,6 +48,9 @@ class SignupViewController: UIViewController {
         }
         return true
     }*/
+    private func printRealmMessage() {
+        print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
     private func signNewUser() {
         guard emailText.text != "" && passwordText.text != "" else {
             showErrorAlert();
@@ -69,6 +76,24 @@ class SignupViewController: UIViewController {
     private func setupUI() {
         emailText.autocorrectionType = .no
     }
+    private func configureSignupBindings() {
+             let isLogin = emailText.rx.text.orEmpty
+                 .map { $0.count >= 1 }
+                 .share(replay: 1)
+             let isPassword = passwordText.rx.text.orEmpty
+                 .map { $0.count >= 1 }
+                 .share(replay: 1)
+             let isEverything = Observable.combineLatest(isLogin, isPassword) { (login, password) in
+                 return login && password
+             }
+             isEverything
+                 .bind(to: emailText.rx.isEnabled)
+                 .disposed(by: disposeBag)
+             isEverything
+                 .map { $0 ? 1.0 : 0.5 }
+                 .bind(to: emailText.rx.alpha)
+                 .disposed(by: disposeBag)
+         }
     // MARK: - Controller show methods.
     /*private func showUserProfile() {
         let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
