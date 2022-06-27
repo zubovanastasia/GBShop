@@ -17,6 +17,7 @@ class ChangeUserDataViewController: UIViewController {
     @IBOutlet private weak var gender: UISegmentedControl!
     @IBOutlet private weak var password: UITextField!
     private let request = RequestFactory()
+    var onTakePicture: ((UIImage) -> Void)?
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -46,6 +47,27 @@ class ChangeUserDataViewController: UIViewController {
         viewController?.modalPresentationStyle = .fullScreen
         if let viewController = viewController as? UserProfileViewController {
             self.present(viewController, animated: true)
+        }
+    }
+    private func showSelfyModule(image: UIImage) {
+        let storyboard = UIStoryboard(name: "Selfy", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        viewController?.modalPresentationStyle = .fullScreen
+        if let viewController = viewController as? SelfyViewController {
+            viewController.image = image
+            self.present(viewController, animated: true)
+        }
+    }
+    private func presentImagePicker() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            return
+        }
+        let photoPickerController = UIImagePickerController()
+        photoPickerController.sourceType = .camera
+        photoPickerController.allowsEditing = true
+        photoPickerController.delegate = self
+        DispatchQueue.main.async {
+            self.present(photoPickerController, animated: true)
         }
     }
     // MARK: - Error alert private methods.
@@ -107,5 +129,31 @@ class ChangeUserDataViewController: UIViewController {
     }
     @IBAction private func cancelButton(_ sender: Any) {
         self.showUserProfile()
+    }
+    @IBAction func takePhoto(_ sender: Any) {
+        self.presentImagePicker()
+    }
+}
+// MARK: - Extentions.
+extension ChangeUserDataViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker:  UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        picker.dismiss(animated: true) { [weak self] in
+            guard let image = self?.extractImage(from: info) else {
+                return
+            }
+            self?.onTakePicture?(image)
+        }
+    }
+    private func extractImage(from info: [String: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.editedImage.rawValue] as? UIImage {
+            return image
+        } else if let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
+            return image
+        } else {
+            return nil
+        }
     }
 }
