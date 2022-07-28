@@ -15,16 +15,17 @@ import RxSwift
 class MapController: UIViewController {
     @IBOutlet private weak var mapView: GMSMapView!
     private var coordinates = [CLLocationCoordinate2D]()
-    private var manualMarker: GMSMarker?
+    private var userMarker: GMSMarker?
     private var locationManager = LocationManager.instance
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
-    private var markers = [GMSMarker]()
+    private var userMarkers = [GMSMarker]()
     private let mapDB = RealmDB()
     private var locationsDB = [LocationObject]()
     private var task: UIBackgroundTaskIdentifier?
     private var isTracking: Bool = false
     private let disposeBag = DisposeBag()
+    var user: User?
     
     // MARK: - ViewController methods.
     override func viewDidLoad() {
@@ -38,11 +39,28 @@ class MapController: UIViewController {
     private func printRealmMessage() {
         print("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
-    private func addMarker() {
-        let marker = GMSMarker()
+    private func addMarker(position: CLLocationCoordinate2D) {
+        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
+        let view = UIView(frame: rect)
+        let imageView = UIImageView(frame: rect)
+        let imageString = user?.image.toImage()
+        if user?.image == "user_icon" {
+            imageView.image = UIImage(named: "user_icon")
+        }
+        else {
+            imageView.image = imageString
+        }
+        view.addSubview(imageView)
+        let marker = GMSMarker(position: position)
         marker.map = mapView
-        self.manualMarker = marker
+        marker.iconView = view
+        self.userMarker = marker
+        userMarker.append(marker)
     }
+    private func removeMarker() {
+         userMarker?.map = nil
+         userMarker = nil
+     }
     private func configureMap() {
         let camera = GMSCameraPosition.camera(withTarget: coordinates.last ?? CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504), zoom: 17)
         mapView.camera = camera
@@ -59,6 +77,7 @@ class MapController: UIViewController {
                 self?.routePath?.add(location.coordinate)
                 self?.route?.path  = self?.routePath
                 let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 17)
+                self?.userMarker == nil ? self?.addMarker(position: location.coordinate) : self?.removeMarker()
                 self?.coordinates.append(location.coordinate)
                 self?.mapView.animate(to: position)
                 self?.mapDB.saveToRealm(self!.coordinates)
@@ -100,7 +119,7 @@ class MapController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     @IBAction private func markerTracking(_ sender: Any) {
-        addMarker()
+        userMarker == nil ? addMarker(position: CLLocationCoordinate2D()) : removeMarker()
     }
     @IBAction private func startTrack(_ sender: Any) {
         coordinates.removeAll()
@@ -109,7 +128,7 @@ class MapController: UIViewController {
         isTracking = true
     }
     @IBAction private func stopTrack(_ sender: Any) {
-        markers.forEach { $0.map = nil }
+        userMarkers.forEach { $0.map = nil }
         mapDB.deleteAll()
         mapDB.saveToRealm(coordinates)
         route?.map = nil
@@ -138,11 +157,11 @@ class MapController: UIViewController {
 // MARK: - Extensions.
 extension MapController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        if let manualMarker = manualMarker { manualMarker.position = coordinate
+        if let manualMarker = userMarker { manualMarker.position = coordinate
         } else {
             let marker = GMSMarker(position: coordinate)
             marker.map = mapView
-            self.manualMarker = marker
+            self.userMarker = marker
         }
     }
 }
@@ -182,7 +201,6 @@ extension GMSMapView {
         }
     }
 }
-
 extension Array {
     var middle: Element? {
         guard count != 0 else {
